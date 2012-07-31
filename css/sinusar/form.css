@@ -1,0 +1,124 @@
+
+/* 
+Diseñado por Alejandro Sanchez
+http://internetdeveloping.blogspot.com
+
+Aqui van todos los estilos de los formularios de la pagina web
+eres libre de modificar estearchivo a tu gusto
+*/
+
+input, textarea, select 
+{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #333333;
+	background:#FFFFFF;
+	font-weight:normal; 
+}
+
+textarea
+{
+	padding: 3px;
+	border: 1px solid #999999;
+	background:#FFFFFF;
+	font-size: 11px;
+}
+
+input[type=checkbox]
+{
+	padding: 3px;
+	border: 1px solid #999999;
+}
+
+
+input[type=file]
+{
+	padding: 3px;
+	border: 1px solid #999999;
+	font-size: 11px;
+}
+input[type=text],input[type=dateChooser]
+{
+	padding: 3px;
+	border: 1px solid #999999;
+	font-size: 11px;
+}
+input[type=dateChooser]
+{
+	width:60px;
+}
+
+select
+{
+	padding: 3px;
+	border: 1px solid #999999;
+	background:#FFFFFF;
+	font-size: 11px;
+	height: 25px;
+	width: 125px;
+}
+input[type=password] 
+{
+	padding: 3px;
+	border: 1px solid #999999;
+	font-size: 11px;
+}	
+input[type=submit], input[type=button]
+{
+	padding:    5px;
+	border:     none;
+	background: #0A5688;
+	color:      #FFFFFF;;
+}
+
+.ui-radio-state-disabled,
+.ui-radio-state-checked-disabled,
+.ui-radio-state-disabled-hover,
+.ui-radio-state-checked-disabled-hover {
+	color: #999;
+}
+
+span.ui-radio {
+	display: block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: url(../images/icon_checkbox.png) 0 -40px no-repeat;
+}
+span.ui-helper-hidden {
+	display: none;
+}
+label {
+	padding: 2px;
+	
+}
+span.ui-radio-state-hover,
+span.ui-checkbox-state-hover {
+	background-position: 0 -114px;
+}
+
+span.ui-checkbox-state-checked {
+	background-position: 0 -1px;
+}
+
+span.ui-checkbox-state-checked-hover {
+	background-position: 0 -75px;
+}
+span.ui-radio-state-checked-disabled-hover,
+span.ui-radio-state-checked-disabled,
+span.ui-radio-state-checked {
+	background-position: 0 -161px;
+}
+
+
+span.ui-radio-state-checked-hover {
+	background-position: 0 -200px;
+}
+	
+.ui-helper-hidden-accessible {
+	position: absolute;
+	left: -999em;
+}
+
+.defaultText { width: 100px; }
+.defaultTextActive { color: #a1a1a1; font-style: italic; }

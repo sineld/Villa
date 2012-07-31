@@ -1,0 +1,66 @@
+
+/* 
+Diseñado por Alejandro Sanchez
+http://internetdeveloping.blogspot.com
+
+Aqui van todos los estilos de las tablas de la pagina web
+eres libre de modificar este archivo a tu gusto
+*/
+
+Table {
+border-collapse: collapse;
+border-spacing: 1px;
+}
+
+Table td, Table th {
+border-bottom:solid 1px #eee;
+vertical-align:top;
+}
+
+Table caption{
+background: #efefef;
+color: #333;
+text-align: center;
+font-size: 1.2em;
+line-height:3em;
+}
+
+Table thead th {
+border-bottom:solid 1px #ddd;
+border-top:solid 1px #fff;
+text-align:left;
+}
+
+Table tfoot td, Table tfoot th{
+background: #eee;
+border-bottom:solid 1px #fff;
+border-top:solid 1px #ccc;
+text-align:right;
+padding-right:20px;
+}
+
+Table tr.odd td, Table tr.odd th {
+background:#ffffff;
+}
+
+/* links */
+
+Table td a, Table td a:visited {
+padding-top:6px;
+padding-bottom:6px;
+margin-top:-6px;
+margin-bottom:-6px;
+}
+
+Table tbody th a {
+background: url(../images/lupa.png) center left no-repeat;
+padding-left:20px;
+}
+
+Table tbody a { 
+background: url(../images/table.png) center left no-repeat;
+padding-left: 20px;
+}
+Table tbody tr:hover {
+		background:#DBEBF6;
+}

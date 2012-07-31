@@ -1,0 +1,46 @@
+
+/* 
+Diseñado por Alejandro Sanchez
+http://internetdeveloping.blogspot.com
+*/
+
+.imageOption {
+	background-color:#ffffff;
+	border: dashed 1px #000000;
+	padding: 5px;
+	margin:5px;
+	display:inline-block;
+}
+
+.imageOption:hover {
+	background-color:#D7D7FF;
+}
+
+.clickImageOption {
+	background-color:#000066;
+}
+.clickImageOption:hover {
+	background-color:#000066;
+}
+
+#leftSide
+{
+	margin-left:100px;
+	float:left;
+	padding-right:10px;
+}
+
+#content
+{
+	padding-top:40px;
+}
+
+#rightSide
+{
+	margin-right:100px;
+	float:right;
+	padding-left:10px;
+	min-height:300px;
+	min-width:600px;
+	border-left:dashed 1px #666666;
+}

@@ -1,0 +1,105 @@
+.columns li
+{
+	border:       0px;
+	padding:      0px;
+	display:      inline-table;
+}
+
+.column
+{
+	position: relative;
+	width:   140px;
+	height:  200px;
+	border:  1px solid #555;
+	margin:  5px;
+	padding: 10px;
+	display: block;
+	float:   left;
+}
+
+.myColumn
+{
+	position: relative;
+	width:   140px;
+	height:  200px;
+	border:  1px solid #555;
+	margin:  5px;
+	padding: 10px;
+	display: block;
+}
+
+h2.column,h2.myColumn
+{
+	float:       left;
+	top:         0px;
+	left:        0px;
+	position:    relative;
+	padding:     0px;
+	margin:      0px;
+    font-family: Verdana, Arial, Sans Serif;
+    font-size:   1em;
+	display:     block;
+}
+
+.price
+{
+	font-size:       0.9em;
+	top:             20%;
+	padding-left:    10px;
+	float:           left;
+	position:        relative;
+    font-family:     Verdana, Arial, Sans Serif;
+	display:         block;
+	color:           #66A90B;
+	tetx-decoration: italic;
+	float:           right;
+}
+
+.title_plan
+{
+	position: relative;
+	border    1px solid black;
+	height:   30px;
+}
+
+.column ul
+{
+	display:       block;
+	padding:       2px;
+	margin-left:   10px;
+	margin-top:    10px;
+}
+
+.column ul li
+{
+	font-size:      0.8em;
+	vertical-align: middle;
+	padding-top:    4px;
+	position:       relative;
+}
+
+.column ul li img
+{
+	vertical-align: middle;
+	float:          right;
+	position:       relative;
+}
+
+.signup
+{
+	height:                25px;
+    border:                1px solid #999;
+    font-family:           Verdana, Arial, Sans Serif;
+    font-size:             1em;
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    position:              relative;
+    float:                 right;
+	padding-top:           2px;
+	top:                   10px;
+}
+
+.errors
+{
+	float: left;
+}

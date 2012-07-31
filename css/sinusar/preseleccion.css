@@ -1,0 +1,62 @@
+h1 {
+	font: normal 3.5em "Just another hand", sans, serif;
+	color: #fff;
+	margin: 50px 0 50px 0;
+	letter-spacing: 0.03em;
+	text-shadow: 2px 2px 2px black;
+	text-align: center;
+}
+table#preselecionados{
+	color: #fff;
+	margin: 0 auto;
+	width: 800px;
+	text-align: center;
+}
+table#preselecionados td{
+	padding: 10px 20px;
+}
+
+table#preselecionados th {
+	border-bottom: 2px solid #fff;
+	padding-bottom: 1.5em;
+}
+
+table#preselecionados td.acciones {
+	width: 250px;
+}
+
+table#preselecionados form {
+	display: inline;
+}
+table#preselecionados td input.boton {
+	border: none;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+	color: #000;
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 0.8em;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+table#preselecionados td input.rechazarBtn{
+	background: #AA0000;
+}
+
+table#preselecionados td input.rechazarBtn:hover{
+	background: #880000;
+}
+table#preselecionados td input.aceptarBtn{
+	background: #00AA00;
+}
+table#preselecionados td input.aceptarBtn:hover{
+	background: #008800;
+}
+
+a {
+	color: #fff;
+}

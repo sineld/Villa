@@ -1,0 +1,40 @@
+[06-Feb-2012 04:11:33] PHP Fatal error:  Uncaught exception 'Doctrine_Manager_Exception' with message 'Could not parse dsn' in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php:418
+Stack trace:
+#0 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(433): Doctrine_Manager->_buildDsnPartsArray('mysql://:@/')
+#1 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(303): Doctrine_Manager->parseDsn('mysql://:@/')
+#2 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(265): Doctrine_Manager->openConnection('mysql://:@/', NULL)
+#3 /home/villadel/public_html/admin/generator/generateModelFromSQL.php(20): Doctrine_Manager::connection('mysql://:@/', NULL)
+#4 {main}
+  thrown in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php on line 418
+[06-Feb-2012 04:25:52] PHP Fatal error:  Uncaught exception 'Doctrine_Manager_Exception' with message 'Could not parse dsn' in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php:418
+Stack trace:
+#0 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(433): Doctrine_Manager->_buildDsnPartsArray('mysql://:@/')
+#1 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(303): Doctrine_Manager->parseDsn('mysql://:@/')
+#2 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(265): Doctrine_Manager->openConnection('mysql://:@/', NULL)
+#3 /home/villadel/public_html/admin/generator/generateModelFromSQL.php(20): Doctrine_Manager::connection('mysql://:@/', NULL)
+#4 {main}
+  thrown in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php on line 418
+[06-Feb-2012 04:40:47] PHP Fatal error:  Uncaught exception 'Doctrine_Manager_Exception' with message 'Could not parse dsn' in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php:418
+Stack trace:
+#0 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(433): Doctrine_Manager->_buildDsnPartsArray('mysql://:@/')
+#1 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(303): Doctrine_Manager->parseDsn('mysql://:@/')
+#2 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php(265): Doctrine_Manager->openConnection('mysql://:@/', NULL)
+#3 /home/villadel/public_html/admin/generator/generateModelFromSQL.php(20): Doctrine_Manager::connection('mysql://:@/', NULL)
+#4 {main}
+  thrown in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Manager.php on line 418
+[15-Feb-2012 04:42:40] PHP Warning:  require_once(../../plugins/doctrine/lib/Doctrine.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/villadel/public_html/admin/generator/generateSchemaFromModel.php on line 9
+[15-Feb-2012 04:42:40] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '../../plugins/doctrine/lib/Doctrine.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/villadel/public_html/admin/generator/generateSchemaFromModel.php on line 9
+[15-Feb-2012 05:20:07] PHP Fatal error:  Uncaught exception 'Doctrine_Export_Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'villadel_villa.#sql-129e_34a233' (errno: 121). Failing Query: "ALTER TABLE articulos ADD CONSTRAINT articulos_tipo_tipos_id FOREIGN KEY (tipo) REFERENCES tipos(id)". Failing Query: ALTER TABLE articulos ADD CONSTRAINT articulos_tipo_tipos_id FOREIGN KEY (tipo) REFERENCES tipos(id)' in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Export.php:1219
+Stack trace:
+#0 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Export.php(1100): Doctrine_Export->exportClasses(Array)
+#1 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Core.php(889): Doctrine_Export->exportSchema('../../model')
+#2 /home/villadel/public_html/admin/generator/generateTablesFromModel.php(59): Doctrine_Core::createTablesFromModels('../../model')
+#3 {main}
+  thrown in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Export.php on line 1219
+[15-Feb-2012 22:50:24] PHP Fatal error:  Uncaught exception 'Doctrine_Export_Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'villadel_villa.#sql-129e_37ab1b' (errno: 121). Failing Query: "ALTER TABLE articulos_index ADD CONSTRAINT articulos_index_id_articulos_id FOREIGN KEY (id) REFERENCES articulos(id) ON UPDATE CASCADE ON DELETE CASCADE". Failing Query: ALTER TABLE articulos_index ADD CONSTRAINT articulos_index_id_articulos_id FOREIGN KEY (id) REFERENCES articulos(id) ON UPDATE CASCADE ON DELETE CASCADE' in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Export.php:1219
+Stack trace:
+#0 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Export.php(1100): Doctrine_Export->exportClasses(Array)
+#1 /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Core.php(889): Doctrine_Export->exportSchema('../../model')
+#2 /home/villadel/public_html/admin/generator/generateTablesFromModel.php(59): Doctrine_Core::createTablesFromModels('../../model')
+#3 {main}
+  thrown in /home/villadel/public_html/plugins/Doctrine/lib/Doctrine/Export.php on line 1219

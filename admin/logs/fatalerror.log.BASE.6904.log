@@ -1,0 +1,127 @@
+[2010/03/04 05:47:19] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:47:49] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:48:42] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:48:43] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:48:47] Invalid binding.xml, there was a parsing problem.
+[2010/03/05 01:29:30] The view "private" has not been defined bindings.xml
+[2010/03/05 01:29:37] Missing delegate 'Validate.delegate.php'
+[2010/03/05 01:30:32] The view "private" has not been defined bindings.xml
+[2010/03/05 01:34:19] The view "" has not been defined bindings.xml
+[2010/03/05 01:34:35] The view "" has not been defined bindings.xml
+[2010/03/05 01:35:15] The view "" has not been defined bindings.xml
+[2010/03/05 01:36:32] The view "" has not been defined bindings.xml
+[2010/03/05 01:36:33] The view "" has not been defined bindings.xml
+[2010/03/05 01:37:57] The view "" has not been defined bindings.xml
+[2010/03/07 12:52:15] Invalid template home
+[2010/03/07 01:21:08] The view "add-participant" has not been defined bindings.xml
+[2010/03/07 01:21:15] The view "add-Participant" has not been defined bindings.xml
+[2010/03/07 01:21:35] The view "add-participant" has not been defined bindings.xml
+[2010/03/07 01:25:06] User role: invalid. This role has no priviledges for this view add-participant
+[2010/03/07 01:26:06] Missing delegate 'participantDelegate.delegate.php'
+[2010/03/08 09:56:58] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:57:10] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:57:33] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:58:17] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:59:01] The view "controller" has not been defined bindings.xml
+[2010/03/08 10:00:15] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:32:40] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:32:55] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:33:27] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:33:55] The view "" has not been defined bindings.xml
+[2010/03/09 12:33:56] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:25] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:57] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:59] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:59] The view "" has not been defined bindings.xml
+[2010/03/09 12:49:00] The view "" has not been defined bindings.xml
+[2010/03/09 12:49:08] The view "" has not been defined bindings.xml
+[2010/03/09 12:49:10] The view "" has not been defined bindings.xml
+[2010/03/09 12:50:09] The view "" has not been defined bindings.xml
+[2010/03/09 12:50:10] The view "" has not been defined bindings.xml
+[2010/03/09 12:50:31] The view "" has not been defined bindings.xml
+[2010/03/09 12:52:00] The view "" has not been defined bindings.xml
+[2010/03/09 12:52:38] The view "" has not been defined bindings.xml
+[2010/03/09 12:52:39] The view "" has not been defined bindings.xml
+[2010/03/09 12:53:15] The view "" has not been defined bindings.xml
+[2010/03/09 12:55:14] The view "default.css" has not been defined bindings.xml
+[2010/03/09 12:55:14] The view "datepicker.css" has not been defined bindings.xml
+[2010/03/09 12:55:15] The view "jquery.js" has not been defined bindings.xml
+[2010/03/09 12:55:34] The view "" has not been defined bindings.xml
+[2010/03/09 12:56:49] The view "datepicker.css" has not been defined bindings.xml
+[2010/03/09 01:05:02] The view "controller.php" has not been defined bindings.xml
+[2010/03/09 04:23:11] User role: invalid. This role has no priviledges for this view private
+[2010/03/09 04:25:05] User role: invalid. This role has no priviledges for this view private
+[2010/03/25 03:26:50] The view "" has not been defined bindings.xml
+[2010/04/07 04:21:48] The view "" has not been defined bindings.xml
+[2010/04/07 04:22:12] The view "" has not been defined bindings.xml
+[2010/04/07 04:23:08] The view "" has not been defined bindings.xml
+[2010/04/07 04:23:46] The view "" has not been defined bindings.xml
+[2010/04/15 05:23:45] The view "" has not been defined bindings.xml
+[2010/04/15 05:23:48] The view "" has not been defined bindings.xml
+[2010/04/18 09:41:34] The view "" has not been defined bindings.xml
+[2010/04/25 03:00:33] The view "contrasena" has not been defined bindings.xml
+[2010/04/25 03:00:52] User role: admin. This role has no priviledges for this view change-password
+[2010/04/25 03:13:36] User role: invalid. This role has no priviledges for this view private
+[2010/04/25 03:15:37] The view "search" has not been defined bindings.xml
+[2010/04/25 03:16:01] The view "search" has not been defined bindings.xml
+[2010/05/22 12:49:27] User role: . This role has no priviledges for this view login
+[2010/05/22 12:50:56] The view "olvidar-cambio" has not been defined bindings.xml
+[2010/05/22 01:10:20] Missing delegate 'InicioDelegate.delegate.php'
+[2010/05/22 01:11:42] User role: invalid. This role has no priviledges for this view catalogo
+[2010/05/22 01:12:02] Missing delegate 'Catalogo.delegate.php'
+[2010/05/22 01:12:13] Missing delegate 'Catalogo.delegate.php'
+[2010/05/22 01:12:14] Missing delegate 'Catalogo.delegate.php'
+[2010/05/22 01:12:26] Missing delegate 'CatalogoDelegate.delegate.php'
+[2010/05/22 01:12:27] Missing delegate 'CatalogoDelegate.delegate.php'
+[2010/05/22 01:13:49] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:08] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:09] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:10] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:10] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:11] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:16:22] No se ha podido realizar la accion: select id,nombre from catalog -> Unknown column 'nombre' in 'field list'
+[2010/05/22 01:16:23] No se ha podido realizar la accion: select id,nombre from catalog -> Unknown column 'nombre' in 'field list'
+[2010/05/22 01:20:47] The view "catalog" has not been defined bindings.xml
+[2010/05/22 01:21:24] User role: admin. This role has no priviledges for this view catalog
+[2010/05/22 01:26:36] The view "catalog_value" has not been defined bindings.xml
+[2010/05/22 01:26:53] No se ha podido realizar la accion: select DISTINCT A.id,A.valor as nombreValor,C.name as nombreCatalogo from catalog_valor A, catalog_valor B, catalog C where (A.idDepende = B.id  and A.idCatalogo = C.id) or (A.idCatalogo = C.id) -> Table 'canis.catalog_valor' doesn't exist
+[2010/05/22 01:28:40] The view "catalog_value" has not been defined bindings.xml
+[2010/10/05 03:42:31] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/05 03:45:41] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/05 03:45:57] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/05 03:48:22] No se ha podido realizar la accion: Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:54:18] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:56:04] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:56:05] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:56:11] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:58:42] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 05:18:42] No se ha podido realizar la consulta a la BD:  -> 
+[2010/10/08 05:19:10] No se ha podido realizar la consulta a la BD:  -> 
+[2010/10/08 05:19:44] No se ha podido realizar la consulta a la BD: There is no open connection
+[2010/10/08 05:20:05] There is no open connection
+[2010/10/08 05:23:48] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'canis.user' doesn't exist. Failing Query: "SELECT u.id AS u__id, u.email AS u__email, u.password AS u__password, u.locationid AS u__locationid, u.roleid AS u__roleid, u.status AS u__status, u.validation_code AS u__validation_code, u.facebook_id AS u__facebook_id FROM user u WHERE (u.email = 'aalejo@gmail.com')"
+[2011/03/14 11:48:09] User role: invalid. This role has no priviledges for this view testing
+[2011/03/14 11:52:52] User role: invalid. This role has no priviledges for this view usabilidad
+[2011/03/14 11:56:41] The view "seo" has not been defined bindings.xml
+[2011/03/14 11:57:05] The view "SEO" has not been defined bindings.xml
+[2011/03/18 10:50:03] The view "quienes" has not been defined bindings.xml
+[2011/03/18 10:51:06] The view "quienes" has not been defined bindings.xml
+[2011/04/06 10:12:29] The view "desarrollo" has not been defined bindings.xml
+[2011/04/18 09:22:03] The view "contacto" has not been defined bindings.xml
+[2011/05/04 07:36:49] The view "beneficios" has not been defined bindings.xml
+[2011/05/06 05:28:09] The view "entrega-por-objetivos" has not been defined bindings.xml
+[2011/05/16 11:47:08] The view "void" has not been defined bindings.xml
+[2011/05/16 11:54:20] The view "void" has not been defined bindings.xml
+[2011/05/16 11:58:21] The view "void" has not been defined bindings.xml
+[2011/05/18 11:19:28] The view "void" has not been defined bindings.xml
+[2011/05/18 11:29:50] The view "vacante-pasantia" has not been defined bindings.xml
+[2011/05/18 11:30:59] The view "vacante-fijo" has not been defined bindings.xml
+[2011/05/19 11:52:43] The view "vacante-pasantia" has not been defined bindings.xml
+[2011/05/20 01:06:52] The view "void" has not been defined bindings.xml
+[2011/05/20 01:57:09] The view "vacante-pasantia" has not been defined bindings.xml
+[2011/05/30 10:50:36] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:51:15] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:54:30] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:55:11] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:56:04] User role: invalid. This role has no priviledges for this view inicio
+[2011/05/30 10:56:56] User role: invalid. This role has no priviledges for this view inicio

@@ -1,0 +1,16 @@
+
+/* 
+Diseñado por Alejandro Sanchez
+http://internetdeveloping.blogspot.com
+
+Aqui van todos los estilos de las listas de la pagina web
+eres libre de modificar estearchivo a tu gusto
+*/
+
+.right { float:right; width:50%;}
+.left { float:left; width:50%;}
+#menuItem{ width: 100%; padding: 0 0; margin: 10px 0 5px;font-size:12px;}
+#menuItem li {  display: inline; padding-left:20px;margin-top:10px;}
+#menuItem li a:hover { text-decoration: none; }
+
+#menuButtons{  width: 300px; padding: 0 0; margin: 10px 0 5px;font-size:12px;}

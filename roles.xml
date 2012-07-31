@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<roles>
+	<role name='invalid' >
+		<view read='true' edit='true' delete='true' add='true'>inicio</view>
+		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
+		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<!--<view read='true' edit='true' delete='true' add='true'>signup</view>-->
+		<view read='true' edit='true' delete='true' add='true'>login</view>
+		<view read='true' edit='true' delete='true' add='true'>forgot</view>		
+		<view read='true' edit='true' delete='true' add='true'>forgot2</view>
+		<view read='true' edit='true' delete='true' add='true'>mobile</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>
+	</role>
+	
+	<role name='admin' >
+		<view read='true' edit='true' delete='true' add='true'>inicio</view>
+		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
+		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<view read='true' edit='true' delete='true' add='true'>home</view>
+		<view read='true' edit='true' delete='true' add='true'>administracion</view>
+		<view read='true' edit='true' delete='true' add='true'>private</view>
+		<view read='true' edit='true' delete='true' add='true'>catalog</view>
+	    <view read='true' edit='true' delete='true' add='true'>catalog-value</view>
+		<view read='true' edit='true' delete='true' add='true'>change-password</view>
+		<view read='true' edit='true' delete='true' add='true'>agregararticulos</view>
+		<view read='true' edit='true' delete='true' add='true'>modificararticulos</view>
+		<view read='true' edit='true' delete='true' add='true'>listararticulos</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
+		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<view read='true' edit='true' delete='true' add='true'>agregarfotos</view>
+		<view read='true' edit='true' delete='true' add='true'>listarfotos</view>
+		<view read='true' edit='true' delete='true' add='true'>editarfotos</view>
+		<view read='true' edit='true' delete='true' add='true'>agregarcategorias</view>
+		<view read='true' edit='true' delete='true' add='true'>modificarcategorias</view>
+		<view read='true' edit='true' delete='true' add='true'>listarcategorias</view>
+		<view read='true' edit='true' delete='true' add='true'>agregartipos</view>
+		<view read='true' edit='true' delete='true' add='true'>modificartipos</view>
+		<view read='true' edit='true' delete='true' add='true'>listartipos</view>
+		<view read='true' edit='true' delete='true' add='true'>agregartipocliente</view>
+		<view read='true' edit='true' delete='true' add='true'>modificartipocliente</view>
+		<view read='true' edit='true' delete='true' add='true'>listartipocliente</view>
+		<view read='true' edit='true' delete='true' add='true'>administracion</view>
+		<view read='true' edit='true' delete='true' add='true'>signup</view>
+		<view read='true' edit='true' delete='true' add='true'>validate</view>
+		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
+		
+		<view read='true' edit='true' delete='true' add='true'>listarusuarios</view>
+	</role>
+	
+	<role name="cliente">
+		<view read='true' edit='true' delete='true' add='true'>inicio</view>
+		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
+		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<view read='true' edit='true' delete='true' add='true'>change-password</view>
+		<view read='true' edit='true' delete='true' add='true'>private</view>			
+	</role>
+	
+	<role name="vendedor">
+		<view read='true' edit='true' delete='true' add='true'>inicio</view>
+		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
+		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<view read='true' edit='true' delete='true' add='true'>change-password</view>
+		<view read='true' edit='true' delete='true' add='true'>private</view>
+	</role>
+</roles>

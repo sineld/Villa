@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /images/
+Disallow: /delegate/
+Disallow: /css/
+Disallow: /admin/
+Disallow: /docs/
+Disallow: /js/
+Disallow: /manager/
+Disallow: /model/
+Disallow: /phputils/
+Disallow: /plugins/
+Disallow: /temp/
+Disallow: /public_action/

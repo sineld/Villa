@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<views>
+	<view name="home" url="inicio.php" template="menu" styles="stc/home.css"/>
+	<view name="inicio" url="inicio.php"/>
+	<view name="mapasite" url="mapa.php"/>
+	<view name="administracion" url="inicio.php" template="admin" styles="administracion.css" />
+	<view name="catalogo" url="articulos-corta.php" class="ArticuloDelegate"/>
+	<view name="articulo" url="articulos-completo.php" class="ArticuloDelegate" template="vacio"/>
+	<view name="catalogo2" url="articulos-corta-nuevo.php" class="ArticuloDelegate" template="newdesign"/>
+	<view name="agregararticulos" url="articulos-agregar.php" class="ArticuloDelegate" template="admin" styles="administracion.css"  />
+	<view name="listararticulos" url="articulos-listar.php" class="ArticuloDelegate" template="admin" styles="administracion.css"/>
+	
+	<view name="mobile" url="mobile.php" class="ArticuloDelegate" template="mobile" styles="mobile.css"/>	
+	
+	<view name="pedidos" url="ventas/hoja-pedidos.php" class="ArticuloDelegate" template="admin" styles="administracion.css"/>
+	
+	<view name="modificararticulos" url="articulos-modificar.php" class="ArticuloDelegate" template="admin" styles="administracion.css" >
+		<getter destination="entity">getCategoriasArray</getter>
+	</view>
+	
+	
+	<view name="agregarfotos" url="fotos-agregar.php" class="FotoDelegate" template="admin" styles="administracion.css" />
+	<view name="listarfotos" url="fotos-listar.php" class="FotoDelegate" template="admin" styles="administracion.css" />
+	<view name="editarfotos" url="fotos-editar.php" class="FotoDelegate" template="admin" styles="administracion.css" />
+	
+	
+	<view name="agregarcategorias" url="categorias-agregar.php" class="CategoriaDelegate" template="admin" styles="administracion.css"/>
+	<view name="modificarcategorias" url="categorias-modificar.php" class="CategoriaDelegate" template="admin" styles="administracion.css"/>
+	<view name="listarcategorias" url="categorias-listar.php" class="CategoriaDelegate" template="admin" styles="administracion.css"/>
+	
+	<view name="agregartipos" url="tipos-agregar.php" class="TipoDelegate" template="admin" styles="administracion.css" />
+	<view name="modificartipos" url="tipos-modificar.php" class="TipoDelegate" template="admin" styles="administracion.css" />
+	<view name="listartipos" url="tipos-listar.php" class="TipoDelegate" template="admin" styles="administracion.css" />
+	
+	<view name="agregartipocliente" url="tipocliente-agregar.php" class="TipoClienteDelegate" template="admin" styles="administracion.css" />
+	<view name="modificartipocliente" url="tipocliente-modificar.php" class="TipoClienteDelegate" template="admin" styles="administracion.css" />
+	<view name="listartipocliente" url="tipocliente-listar.php" class="TipoClienteDelegate" template="admin" styles="administracion.css" />
+	
+	
+	<view name="ver-productos" url="dame-productos.php" class="AgregararticuloDelegate" styles="damelo.css"/>
+	<view name="private" url="private.php"/>
+	<view name="signup" url="_user/registro.php" class="RegistroDelegate" />
+	<view name="validate" url="_user/validate.php"/>
+	<view name="login" url="_user/login.php"/>
+	<view name="forgot" url="_user/olvidarContrasena.php" class="ContrasenaDelegate"/>
+	<view name="forgot2" url="_user/olvidarContrasena2.php" class="ContrasenaDelegate"/>
+	<view name="change-password" url="_user/contrasenaCambio.php" class="ContrasenaDelegate"/>
+	<view name="listarusuarios" url="_user/usuarios.php" template="admin" styles="administracion.css" class="RegistroDelegate" />
+	
+	<view name="catalog-value" url="_catalog/catalogo_valor.php" class="CatalogDelegate">
+		<getter destination="valores">getRecursiva</getter>
+		<getter destination="cat_valores">getCatalogoValor</getter>
+		<getter destination="depende">getDepende</getter>
+		<getter destination="catalogos">getCatalogo</getter>
+		<getter destination="valores">getRecursiva</getter>
+		<getter destination="cat_valores">getCatalogoValor</getter>
+		<getter destination="depende">getDepende</getter>
+		<getter destination="catalogos">getCatalogo</getter>
+    </view>
+	<view name="catalog-new" url="_catalog/catalogoNew.php" class="CatalogDelegate"/>
+	<view name="catalog" url="_catalog/catalogo.php" class="CatalogDelegate">
+		<getter destination="catalogs">getCatalogo</getter>
+	</view>
+</views>

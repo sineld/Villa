@@ -1,0 +1,15 @@
+.contactoLink{background:url(../images/cocoas/email.png) top left no-repeat; padding-left:20px;}
+.detailsLink{background:url(../images/cocoas/lupa.png) top left no-repeat; padding-left:20px;}
+.votarLink{background:url(../images/cocoas/star.gif) top left no-repeat; padding-left:20px;}
+.editLink{background:url(../images/cocoas/pencil.png) top left no-repeat; padding-left:20px;}
+.iFrameLink{}
+.deleteLink{background:url(../images/cocoas/delete.gif) top left no-repeat; padding-left:20px;}
+.resultadosLink{background:url(../images/cocoas/chart.jpg) top left no-repeat; padding-left:20px;}
+.newVoteLink{background:url(../images/cocoas/newVote.gif) top center no-repeat; padding-top:30px;}
+.anuncioLink{background:url(../images/cocoas/anuncio.png) top center no-repeat; padding-top:30px;}
+.msnIcon { width:16px; height:16px; background:url(../images/cocoas/mashableIcons.png) no-repeat; background-position: 0 -784px; padding-left:20px; }
+.facebookSmallIcon { width:16px; height:16px; background:url(../images/cocoas/mashableIcons.png) no-repeat; background-position: 0 -400px; padding-left:20px; }
+.emailSmallIcon { width:16px; height:16px; background:url(../images/cocoas/mashableIcons.png) no-repeat; background-position: 0 -370px; padding-left:20px; }
+.twitterSmallIcon { width:16px; height:16px; background:url(../images/cocoas/mashableIcons.png) no-repeat; background-position: 0 -1552px; padding-left:20px; }
+.blogspotSmallIcon { width:16px; height:16px; background:url(../images/cocoas/mashableIcons.png) no-repeat; background-position: 0 -1552px; padding-left:20px; }
+.wordPressSmallIcon { width:16px; height:16px; background:url(../images/cocoas/mashableIcons.png) no-repeat; background-position: 0 -1584px; padding-left:20px; }

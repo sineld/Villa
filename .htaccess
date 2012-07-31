@@ -1,0 +1,11 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/.]+)/?$ controller.php?view=$1 [L]
+RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ controller.php?view=$1&$2=$3 [L]
+
+RewriteCond %{HTTP_HOST} ^villadelasmascotas\.com\.ve$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.villadelasmascotas\.com\.ve$
+RewriteRule ^/?$ "http\:\/\/www\.villadelasmascotas\.com" [R=301,L]
+

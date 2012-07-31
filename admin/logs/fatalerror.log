@@ -1,0 +1,348 @@
+[2010/03/04 05:47:19] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:47:49] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:48:42] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:48:43] Invalid binding.xml, there was a parsing problem.
+[2010/03/04 05:48:47] Invalid binding.xml, there was a parsing problem.
+[2010/03/05 01:29:30] The view "private" has not been defined bindings.xml
+[2010/03/05 01:29:37] Missing delegate 'Validate.delegate.php'
+[2010/03/05 01:30:32] The view "private" has not been defined bindings.xml
+[2010/03/05 01:34:19] The view "" has not been defined bindings.xml
+[2010/03/05 01:34:35] The view "" has not been defined bindings.xml
+[2010/03/05 01:35:15] The view "" has not been defined bindings.xml
+[2010/03/05 01:36:32] The view "" has not been defined bindings.xml
+[2010/03/05 01:36:33] The view "" has not been defined bindings.xml
+[2010/03/05 01:37:57] The view "" has not been defined bindings.xml
+[2010/03/07 12:52:15] Invalid template home
+[2010/03/07 01:21:08] The view "add-participant" has not been defined bindings.xml
+[2010/03/07 01:21:15] The view "add-Participant" has not been defined bindings.xml
+[2010/03/07 01:21:35] The view "add-participant" has not been defined bindings.xml
+[2010/03/07 01:25:06] User role: invalid. This role has no priviledges for this view add-participant
+[2010/03/07 01:26:06] Missing delegate 'participantDelegate.delegate.php'
+[2010/03/08 09:56:58] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:57:10] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:57:33] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:58:17] The view "controller.php" has not been defined bindings.xml
+[2010/03/08 09:59:01] The view "controller" has not been defined bindings.xml
+[2010/03/08 10:00:15] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:32:40] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:32:55] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:33:27] The view "controller" has not been defined bindings.xml
+[2010/03/09 12:33:55] The view "" has not been defined bindings.xml
+[2010/03/09 12:33:56] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:25] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:57] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:59] The view "" has not been defined bindings.xml
+[2010/03/09 12:48:59] The view "" has not been defined bindings.xml
+[2010/03/09 12:49:00] The view "" has not been defined bindings.xml
+[2010/03/09 12:49:08] The view "" has not been defined bindings.xml
+[2010/03/09 12:49:10] The view "" has not been defined bindings.xml
+[2010/03/09 12:50:09] The view "" has not been defined bindings.xml
+[2010/03/09 12:50:10] The view "" has not been defined bindings.xml
+[2010/03/09 12:50:31] The view "" has not been defined bindings.xml
+[2010/03/09 12:52:00] The view "" has not been defined bindings.xml
+[2010/03/09 12:52:38] The view "" has not been defined bindings.xml
+[2010/03/09 12:52:39] The view "" has not been defined bindings.xml
+[2010/03/09 12:53:15] The view "" has not been defined bindings.xml
+[2010/03/09 12:55:14] The view "default.css" has not been defined bindings.xml
+[2010/03/09 12:55:14] The view "datepicker.css" has not been defined bindings.xml
+[2010/03/09 12:55:15] The view "jquery.js" has not been defined bindings.xml
+[2010/03/09 12:55:34] The view "" has not been defined bindings.xml
+[2010/03/09 12:56:49] The view "datepicker.css" has not been defined bindings.xml
+[2010/03/09 01:05:02] The view "controller.php" has not been defined bindings.xml
+[2010/03/09 04:23:11] User role: invalid. This role has no priviledges for this view private
+[2010/03/09 04:25:05] User role: invalid. This role has no priviledges for this view private
+[2010/03/25 03:26:50] The view "" has not been defined bindings.xml
+[2010/04/07 04:21:48] The view "" has not been defined bindings.xml
+[2010/04/07 04:22:12] The view "" has not been defined bindings.xml
+[2010/04/07 04:23:08] The view "" has not been defined bindings.xml
+[2010/04/07 04:23:46] The view "" has not been defined bindings.xml
+[2010/04/15 05:23:45] The view "" has not been defined bindings.xml
+[2010/04/15 05:23:48] The view "" has not been defined bindings.xml
+[2010/04/18 09:41:34] The view "" has not been defined bindings.xml
+[2010/04/25 03:00:33] The view "contrasena" has not been defined bindings.xml
+[2010/04/25 03:00:52] User role: admin. This role has no priviledges for this view change-password
+[2010/04/25 03:13:36] User role: invalid. This role has no priviledges for this view private
+[2010/04/25 03:15:37] The view "search" has not been defined bindings.xml
+[2010/04/25 03:16:01] The view "search" has not been defined bindings.xml
+[2010/05/22 12:49:27] User role: . This role has no priviledges for this view login
+[2010/05/22 12:50:56] The view "olvidar-cambio" has not been defined bindings.xml
+[2010/05/22 01:10:20] Missing delegate 'InicioDelegate.delegate.php'
+[2010/05/22 01:11:42] User role: invalid. This role has no priviledges for this view catalogo
+[2010/05/22 01:12:02] Missing delegate 'Catalogo.delegate.php'
+[2010/05/22 01:12:13] Missing delegate 'Catalogo.delegate.php'
+[2010/05/22 01:12:14] Missing delegate 'Catalogo.delegate.php'
+[2010/05/22 01:12:26] Missing delegate 'CatalogoDelegate.delegate.php'
+[2010/05/22 01:12:27] Missing delegate 'CatalogoDelegate.delegate.php'
+[2010/05/22 01:13:49] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:08] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:09] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:10] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:10] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:15:11] No se ha podido realizar la accion: select id,nombre from catalogo -> Table 'canis.catalogo' doesn't exist
+[2010/05/22 01:16:22] No se ha podido realizar la accion: select id,nombre from catalog -> Unknown column 'nombre' in 'field list'
+[2010/05/22 01:16:23] No se ha podido realizar la accion: select id,nombre from catalog -> Unknown column 'nombre' in 'field list'
+[2010/05/22 01:20:47] The view "catalog" has not been defined bindings.xml
+[2010/05/22 01:21:24] User role: admin. This role has no priviledges for this view catalog
+[2010/05/22 01:26:36] The view "catalog_value" has not been defined bindings.xml
+[2010/05/22 01:26:53] No se ha podido realizar la accion: select DISTINCT A.id,A.valor as nombreValor,C.name as nombreCatalogo from catalog_valor A, catalog_valor B, catalog C where (A.idDepende = B.id  and A.idCatalogo = C.id) or (A.idCatalogo = C.id) -> Table 'canis.catalog_valor' doesn't exist
+[2010/05/22 01:28:40] The view "catalog_value" has not been defined bindings.xml
+[2010/10/05 03:42:31] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/05 03:45:41] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/05 03:45:57] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/05 03:48:22] No se ha podido realizar la accion: Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:54:18] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:56:04] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:56:05] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:56:11] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 04:58:42] No se ha podido realizar la accion: SELECT u.status,u.id,u.locationId,u.password,r.name AS roleName FROM user u,role r WHERE (u.roleId = r.id) AND (u.email = "aalejo@gmail.com") -> Access denied for user 'SYSTEM'@'localhost' (using password: NO)
+[2010/10/08 05:18:42] No se ha podido realizar la consulta a la BD:  -> 
+[2010/10/08 05:19:10] No se ha podido realizar la consulta a la BD:  -> 
+[2010/10/08 05:19:44] No se ha podido realizar la consulta a la BD: There is no open connection
+[2010/10/08 05:20:05] There is no open connection
+[2010/10/08 05:23:48] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'canis.user' doesn't exist. Failing Query: "SELECT u.id AS u__id, u.email AS u__email, u.password AS u__password, u.locationid AS u__locationid, u.roleid AS u__roleid, u.status AS u__status, u.validation_code AS u__validation_code, u.facebook_id AS u__facebook_id FROM user u WHERE (u.email = 'aalejo@gmail.com')"
+[2011/03/14 11:48:09] User role: invalid. This role has no priviledges for this view testing
+[2011/03/14 11:52:52] User role: invalid. This role has no priviledges for this view usabilidad
+[2011/03/14 11:56:41] The view "seo" has not been defined bindings.xml
+[2011/03/14 11:57:05] The view "SEO" has not been defined bindings.xml
+[2011/03/18 10:50:03] The view "quienes" has not been defined bindings.xml
+[2011/03/18 10:51:06] The view "quienes" has not been defined bindings.xml
+[2011/04/06 10:12:29] The view "desarrollo" has not been defined bindings.xml
+[2011/04/18 09:22:03] The view "contacto" has not been defined bindings.xml
+[2011/05/04 07:36:49] The view "beneficios" has not been defined bindings.xml
+[2011/05/06 05:28:09] The view "entrega-por-objetivos" has not been defined bindings.xml
+[2011/05/16 11:47:08] The view "void" has not been defined bindings.xml
+[2011/05/16 11:54:20] The view "void" has not been defined bindings.xml
+[2011/05/16 11:58:21] The view "void" has not been defined bindings.xml
+[2011/05/18 11:19:28] The view "void" has not been defined bindings.xml
+[2011/05/18 11:29:50] The view "vacante-pasantia" has not been defined bindings.xml
+[2011/05/18 11:30:59] The view "vacante-fijo" has not been defined bindings.xml
+[2011/05/19 11:52:43] The view "vacante-pasantia" has not been defined bindings.xml
+[2011/05/20 01:06:52] The view "void" has not been defined bindings.xml
+[2011/05/20 01:57:09] The view "vacante-pasantia" has not been defined bindings.xml
+[2011/05/30 10:50:36] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:51:15] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:54:30] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:55:11] The view "inicio" has not been defined bindings.xml
+[2011/05/30 10:56:04] User role: invalid. This role has no priviledges for this view inicio
+[2011/05/30 10:56:56] User role: invalid. This role has no priviledges for this view inicio
+<<<<<<< HEAD
+[2011/06/15 03:45:44] User role: invalid. This role has no priviledges for this view catalog-value
+[2011/06/16 04:14:03] The view "portafolio" has not been defined bindings.xml
+=======
+[2011/06/13 09:08:12] Method not found: getProjects in class ActivitiesDelegate
+[2011/06/15 09:08:08] Method not found: getStories?project=105058 in class ActivitiesDelegate
+>>>>>>> origin/master
+[2011/06/18 12:29:36] User role: invalid. This role has no priviledges for this view private
+[2011/06/18 12:32:29] User role: invalid. This role has no priviledges for this view private
+[2011/06/18 12:34:49] User role: invalid. This role has no priviledges for this view private
+[2011/06/18 12:35:05] User role: invalid. This role has no priviledges for this view private
+[2011/06/18 12:35:23] User role: invalid. This role has no priviledges for this view private
+[2011/06/18 12:36:00] User role: invalid. This role has no priviledges for this view private
+[2011/06/30 03:12:33] The view "lista-vacantes-pasantias" has not been defined bindings.xml
+[2011/06/30 03:12:44] The view "lista-vacantes-p" has not been defined bindings.xml
+[2011/07/13 03:14:44] The view "lista-vacantes" has not been defined bindings.xml
+[2011/07/20 09:25:30] Invalid template desarrollo
+[2011/07/20 09:26:33] Invalid template desarrollo
+[2011/09/05 07:36:21] The view "agregar-categoria" has not been defined bindings.xml
+[2011/09/05 07:36:35] User role: invalid. This role has no priviledges for this view agregarcategorias
+[2011/09/05 07:37:20] Missing delegate 'AgregarCategoriaDelegate.delegate.php'
+[2011/09/05 07:37:53] Missing delegate 'AgregarCategoriaDelegate.delegate.php'
+[2011/09/05 07:37:55] Missing delegate 'AgregarCategoriaDelegate.delegate.php'
+[2011/09/05 07:55:21] The view "agregarcategorias" has not been defined bindings.xml
+[2011/09/06 04:44:03] Method not found: getPaginationCat in class CategoriaDelegate
+[2011/09/06 08:13:22] User role: invalid. This role has no priviledges for this view catalog
+[2011/09/07 09:01:38] The view "view=agregar-producto" has not been defined bindings.xml
+[2011/09/07 09:01:45] The view "view=agregar-productos" has not been defined bindings.xml
+[2011/09/07 09:02:07] The view "view=agregar-producto" has not been defined bindings.xml
+[2011/09/07 09:02:12] The view "view=agregar-producto" has not been defined bindings.xml
+[2011/09/07 10:13:59] Method not found: setCategorias in class CategoriaDelegate
+[2011/09/09 07:05:00] The view "agregartipo" has not been defined bindings.xml
+[2011/09/09 07:09:30] Method not found: getPaginationTipos in class TipoDelegate
+[2011/09/09 07:09:31] Method not found: getTipos in class TipoDelegate
+[2011/09/09 07:11:13] Method not found: getTipos in class TipoDelegate
+[2011/09/09 07:11:14] Method not found: getPaginationTipos in class TipoDelegate
+[2011/09/09 07:23:50] Method not found: getPaginationTipos in class TipoDelegate
+[2011/09/09 07:28:04] Method not found: getPaginationTipos in class TipoDelegate
+[2011/09/09 07:29:57] Method not found: getCategorias in class TipoDelegate
+[2011/09/09 08:16:11] Method not found: getCategoria in class CategoriaDelegate
+[2011/09/09 08:42:31] Method not found: setTipos in class TipoDelegate
+[2011/09/09 08:45:16] Method not found: updateTipo in class TipoDelegate
+[2011/09/09 08:45:21] Method not found: updateTipos in class TipoDelegate
+[2011/09/09 08:45:38] Method not found: updateTipo in class TipoDelegate
+[2011/09/09 08:47:09] Method not found: updateTipo in class TipoDelegate
+[2011/09/09 08:49:01] The view "true" has not been defined bindings.xml
+[2011/09/09 08:57:05] Method not found: getPaginationTipos in class TipoDelegate
+[2011/09/10 01:59:08] Method not found: getPaginationTipos in class TipoDelegate
+[2011/09/10 02:33:55] Method not found: updatetipocliente in class TipoClienteDelegate
+[2011/09/10 02:40:47] Method not found: getpaginationcat in class TipoClienteDelegate
+[2011/09/10 02:54:00] Method not found: getCategorias in class TipoDelegate
+[2011/09/10 03:15:50] Method not found: getCategorias in class TipoDelegate
+[2011/09/10 04:53:15] The view "listartips" has not been defined bindings.xml
+[2011/09/10 05:28:06] Method not found: gettipocliente in class TipoClienteDelegate
+[2011/09/10 05:37:28] Method not found: getTipoCliente in class TipoClienteDelegate
+[2011/09/10 06:36:13] The view "listartipoclientes" has not been defined bindings.xml
+[2011/09/12 01:13:57] Method not found: getCategoria in class CategoriaDelegate
+[2011/09/12 02:43:12] The view "listartipoclientes" has not been defined bindings.xml
+[2011/09/12 02:44:27] The view "agregartipoclientes" has not been defined bindings.xml
+[2011/09/12 04:05:50] The view "tipos-listar" has not been defined bindings.xml
+[2011/09/12 06:06:29] The view "listartipoclientes" has not been defined bindings.xml
+[2011/09/12 06:06:38] The view "listartipoclientes" has not been defined bindings.xml
+[2011/09/12 06:45:37] The view "testing" has not been defined bindings.xml
+[2011/09/13 03:47:49] Method not found: getCategorias in class ArticuloDelegate
+[2011/09/13 04:52:34] The view "30" has not been defined bindings.xml
+[2011/09/13 04:52:40] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 04:52:42] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 04:52:48] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 04:52:52] The view "31" has not been defined bindings.xml
+[2011/09/13 04:53:40] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 04:53:45] The view "32" has not been defined bindings.xml
+[2011/09/13 04:54:58] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 04:55:06] The view "33" has not been defined bindings.xml
+[2011/09/13 04:55:09] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 05:00:05] The view "36" has not been defined bindings.xml
+[2011/09/13 05:00:19] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 05:02:08] The view "42" has not been defined bindings.xml
+[2011/09/13 05:03:32] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/13 05:03:37] The view "43" has not been defined bindings.xml
+[2011/09/13 05:04:47] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/14 06:18:41] Missing delegate 'FotoDelegate.delegate.php'
+[2011/09/18 09:24:54] The view "view=agregafotos" has not been defined bindings.xml
+[2011/09/18 09:25:51] The view "view=agregarfotos" has not been defined bindings.xml
+[2011/09/18 09:27:52] The view "view=agregarfotos" has not been defined bindings.xml
+[2011/09/19 06:15:05] Method not found: setFoto in class FotoDelegate
+[2011/09/19 06:15:12] Method not found: setFotos in class FotoDelegate
+[2011/09/19 06:18:04] The view "=agregarfotos" has not been defined bindings.xml
+[2011/09/19 06:18:16] The view "=agregarfotos" has not been defined bindings.xml
+[2011/09/19 06:19:52] The view "agregarfoto" has not been defined bindings.xml
+[2011/09/21 06:45:17] The view " agregarfotos" has not been defined bindings.xml
+[2011/09/21 07:09:59] The view " agregarfotos" has not been defined bindings.xml
+[2011/09/21 07:59:08] Method not found: setArticulo in class ArticuloDelegate
+[2011/09/21 09:23:31] User role: invalid. This role has no priviledges for this view mostrarfotos
+[2011/09/21 09:24:14] Invalid template none
+[2011/09/21 09:44:21] Method not found: getPaginationArt in class ArticuloDelegate
+[2011/09/21 09:44:21] Method not found: getArticulos in class ArticuloDelegate
+[2011/09/21 09:45:56] Method not found: getArticulos in class ArticuloDelegate
+[2011/09/23 05:02:17] The view "null" has not been defined bindings.xml
+[2011/09/23 05:04:37] The view "null" has not been defined bindings.xml
+[2011/09/23 05:05:17] The view "null" has not been defined bindings.xml
+[2011/09/23 05:05:40] The view "null" has not been defined bindings.xml
+[2011/09/23 05:06:24] The view "null" has not been defined bindings.xml
+[2011/09/23 05:06:48] The view "null" has not been defined bindings.xml
+[2011/09/23 05:07:50] The view "null" has not been defined bindings.xml
+[2011/09/23 08:15:30] The view "agrega" has not been defined bindings.xml
+[2011/09/23 08:24:48] The view "agregartipoclientes" has not been defined bindings.xml
+[2011/09/23 08:24:55] The view "agregartiposcliente" has not been defined bindings.xml
+[2011/09/23 08:25:00] The view "agregartiposclientes" has not been defined bindings.xml
+[2011/09/23 09:36:35] The view "agregar-articulos" has not been defined bindings.xml
+[2011/09/24 04:59:45] The view "agregarARTICULOS" has not been defined bindings.xml
+[2011/09/26 08:51:06] The view "cataloo" has not been defined bindings.xml
+[2011/09/26 09:49:35] Method not found: setArticulo in class ArticuloDelegate
+
+<<<<<<< HEAD
+[2011/09/27 10:36:27] The view "catalogotipo=15" has not been defined bindings.xml
+=======
+[2011/09/27 10:10:00] The view "agregarclientes" has not been defined bindings.xml
+[2011/09/27 10:10:34] The view "agregarclientes" has not been defined bindings.xml
+>>>>>>> ff526d63d9783f5e5ba469821e2ecee29983c061
+<<<<<<< HEAD
+[2011/09/28 06:30:26] The view "articuloslistar" has not been defined bindings.xml
+[2011/09/28 06:30:34] The view "articulolistar" has not been defined bindings.xml
+=======
+[2011/09/28 07:53:01] The view "ADMINISTRACION" has not been defined bindings.xml
+>>>>>>> 63712bbc571ae38d3aafd0f1dbdcad2265cdfca7
+[2011/09/28 11:08:59] The view "articulolistar}" has not been defined bindings.xml
+[2011/09/28 11:09:03] The view "articulolistar" has not been defined bindings.xml
+[2011/09/28 11:09:06] The view "articuloslistar" has not been defined bindings.xml
+[2011/09/30 03:43:57] The view "modificararticulo" has not been defined bindings.xml
+[2011/09/30 03:44:08] The view "articulosmodificar" has not been defined bindings.xml
+[2011/09/30 09:59:56] Method not found: updateArticulos in class ArticuloDelegate
+[2011/09/30 10:41:15] Method not found: updateArticulo in class ArticuloDelegate
+[2011/10/03 04:46:45] Method not found: getarticuloscompleto=id=1 in class ArticuloDelegate
+[2011/10/03 05:16:10] The view "[object Object]" has not been defined bindings.xml
+[2011/10/03 05:17:59] The view "[object Object]" has not been defined bindings.xml
+[2011/10/03 05:18:08] The view "[object Object]" has not been defined bindings.xml
+[2011/10/03 05:18:16] The view "[object Object]" has not been defined bindings.xml
+[2011/10/03 05:19:35] The view "[object Object]" has not been defined bindings.xml
+[2011/10/03 05:22:15] The view "[object Object]" has not been defined bindings.xml
+[2011/10/03 11:42:23] The view "h" has not been defined bindings.xml
+[2011/10/03 11:42:23] The view "o" has not been defined bindings.xml
+[2011/10/03 11:42:24] The view "c" has not been defined bindings.xml
+[2011/10/03 11:42:25] The view "p" has not been defined bindings.xml
+[2011/10/03 11:42:25] The view "V" has not been defined bindings.xml
+[2011/10/03 11:42:25] The view "t" has not been defined bindings.xml
+[2011/10/03 11:42:25] The view "s" has not been defined bindings.xml
+[2011/10/03 11:42:25] The view "a" has not been defined bindings.xml
+[2011/10/03 11:42:25] The view "l" has not been defined bindings.xml
+[2011/10/03 11:42:26] The view "i" has not been defined bindings.xml
+[2011/10/03 11:42:26] The view "C" has not been defined bindings.xml
+[2011/10/03 11:42:26] The view "e" has not been defined bindings.xml
+[2011/10/03 11:42:27] The view "m" has not been defined bindings.xml
+[2011/10/03 11:42:27] The view "g" has not been defined bindings.xml
+[2011/10/03 11:42:27] The view "d" has not been defined bindings.xml
+[2011/10/03 11:42:27] The view "n" has not been defined bindings.xml
+[2011/10/03 11:42:27] The view "_" has not been defined bindings.xml
+[2011/10/03 11:42:27] The view "b" has not been defined bindings.xml
+[2011/10/03 11:42:28] The view "j" has not been defined bindings.xml
+[2011/10/03 11:43:13] The view "h" has not been defined bindings.xml
+[2011/10/03 11:43:14] The view "t" has not been defined bindings.xml
+[2011/10/03 11:43:14] The view "p" has not been defined bindings.xml
+[2011/10/03 11:43:14] The view "o" has not been defined bindings.xml
+[2011/10/03 11:43:14] The view "c" has not been defined bindings.xml
+[2011/10/03 11:43:14] The view "l" has not been defined bindings.xml
+[2011/10/03 11:43:15] The view "a" has not been defined bindings.xml
+[2011/10/03 11:43:15] The view "s" has not been defined bindings.xml
+[2011/10/03 11:43:16] The view "m" has not been defined bindings.xml
+[2011/10/03 11:43:16] The view "V" has not been defined bindings.xml
+[2011/10/03 11:43:16] The view "i" has not been defined bindings.xml
+[2011/10/03 11:43:16] The view "n" has not been defined bindings.xml
+[2011/10/03 11:43:17] The view "C" has not been defined bindings.xml
+[2011/10/03 11:43:17] The view "_" has not been defined bindings.xml
+[2011/10/03 11:43:18] The view "g" has not been defined bindings.xml
+[2011/10/03 11:43:18] The view "e" has not been defined bindings.xml
+[2011/10/03 11:43:19] The view "d" has not been defined bindings.xml
+[2011/10/03 11:43:19] The view "j" has not been defined bindings.xml
+[2011/10/03 11:43:19] The view "b" has not been defined bindings.xml
+[2011/10/03 11:45:18] Method not found: articulo in class ArticuloDelegate
+[2011/10/05 02:21:51] The view "register" has not been defined bindings.xml
+[2011/10/05 02:21:56] Missing delegate 'RegistroDelegate.delegate.php'
+[2011/10/05 03:00:25] User role: admin. This role has no priviledges for this view catalogo
+[2011/10/05 03:28:11] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/05 03:30:28] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/05 03:30:50] User role: invalid. This role has no priviledges for this view administracion
+<<<<<<< HEAD
+[2011/10/05 01:48:45] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/05 01:49:14] The view "ADMINISTRACION" has not been defined bindings.xml
+[2011/10/05 01:49:23] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/05 01:49:25] The view "ADMINISTRACION" has not been defined bindings.xml
+[2011/10/05 01:50:02] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/05 01:52:33] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/05 02:01:24] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/06 07:21:33] User role: admin. This role has no priviledges for this view agregararticulos
+[2011/10/06 10:30:28] User role: admin. This role has no priviledges for this view mapasite
+[2011/10/07 05:07:55] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/07 04:18:42] User role: invalid. This role has no priviledges for this view private
+[2011/10/07 04:19:30] The view "singup" has not been defined bindings.xml
+[2011/10/07 04:20:55] The view "privte" has not been defined bindings.xml
+[2011/10/07 04:21:00] User role: invalid. This role has no priviledges for this view private
+[2011/10/07 04:27:08] User role: admin. This role has no priviledges for this view forgot
+[2011/10/07 04:27:15] The view "logout" has not been defined bindings.xml
+[2011/10/07 06:01:00] User role: invalid. This role has no priviledges for this view catalogo
+[2011/10/07 10:17:47] User role: admin. This role has no priviledges for this view login
+[2011/10/08 04:14:57] Method not found: getarticuloscortos in class ArticuloDelegate
+[2011/10/08 04:36:52] User role: admin. This role has no priviledges for this view signup
+[2011/10/08 04:56:38] User role: admin. This role has no priviledges for this view signup
+[2011/10/09 05:56:45] User role: cliente. This role has no priviledges for this view private
+[2011/10/09 06:38:42] User role: cliente. This role has no priviledges for this view forgot
+[2011/10/09 08:50:02] User role: invalid. This role has no priviledges for this view change-password[2011/10/11 01:26:09] User role: invalid. This role has no priviledges for this view validate
+[2011/10/11 02:35:10] User role: invalid. This role has no priviledges for this view signup
+[2011/10/11 02:35:17] The view "inico" has not been defined bindings.xml
+[2011/10/11 02:36:16] The view "sigup" has not been defined bindings.xml
+[2011/10/18 05:46:45] User role: invalid. This role has no priviledges for this view administracion
+[2011/10/18 06:02:05] The view "fotosagregar" has not been defined bindings.xml
+[2011/10/18 06:03:08] The view "fotosagregar" has not been defined bindings.xml
+[2011/10/19 11:00:39] The view "agregarclientes" has not been defined bindings.xml
+[2011/10/20 03:46:52] User role: invalid. This role has no priviledges for this view signup
+[2011/10/20 03:47:33] User role: invalid. This role has no priviledges for this view signup
+[2011/10/20 03:56:58] User role: invalid. This role has no priviledges for this view validate
+[2011/10/20 03:57:35] User role: invalid. This role has no priviledges for this view validate
+[2011/10/20 04:00:35] User role: invalid. This role has no priviledges for this view signup

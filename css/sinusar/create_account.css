@@ -1,0 +1,125 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+    font-family: Verdana, Arial, Sans Serif;
+    font-size:   1em;
+}
+
+#formulario
+{
+    width:     780px;
+    position:  relative;
+}
+
+fieldset
+{
+    border:         0px solid #fff;
+    position:       relative;
+    margin-bottom:  10px;
+    margin-top:     0px;
+    padding-bottom: 0px;
+    padding-top:    0px;
+    text-align:     right;
+}
+
+input[type="text"]
+{
+    position:              relative;
+    float:                 left;
+    font-family:           Verdana, Arial, Sans Serif;
+    font-size:             1em;    
+    left:                  30px;
+    height:                25px;
+    border:                1px solid #999;
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    background-color:      #F5F5F5;
+    margin:                0px;
+    padding:               0px;
+    display:               inline;
+	width:                 250px;
+}
+
+input[type="submit"]
+{
+    position:              relative;
+    float:                 left;
+    font-family:           Verdana, Arial, Sans Serif;
+    font-size:             1.5em;    
+    left:                  30px;
+    height:                45px;
+    border:                1px solid #999;
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    background-color:      #CCC;
+    margin:                0px;
+    padding:               5px;
+    display:               inline;
+}
+
+select
+{
+    height:                25px;
+    border:                1px solid #999;
+    font-family:           Verdana, Arial, Sans Serif;
+    font-size:             1em;       
+    -moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    background-color:      #F5F5F5;
+    position:              relative;
+    float:                 left;
+}
+
+label
+{
+    font-family: Verdana, Arial, Sans Serif;
+    font-size:   1em;
+    position:    relative;
+    top:         5px;
+    width:       200px;
+    float:       left;
+}
+
+.cont_options
+{
+    position: relative;
+    float:    left;
+    padding:  0px;
+    margin:   0px;
+    left:     30px;
+    display:  inline;
+}
+
+.img_info
+{
+    padding:  0px;
+    margin:   0px;
+    position: relative;
+    float:    left;
+    left:     40px;
+    top:      2px;
+}
+
+.or_cancel
+{
+    position: relative;
+    float:    left;
+    left:     40px;
+    top:      20px;
+    display:  inline;
+}
+
+#account_info_user_code
+{
+    font-family:  Verdana, Arial, Sans Serif;
+    font-size:    1em;
+    position:     relative;
+    top:          5px;
+    float:        left;
+	padding-top:  2px;
+	padding-left: 30px;
+	height:       28px;
+	font-weight:  bold;
+	color:        red;
+}

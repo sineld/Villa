@@ -1,0 +1,96 @@
+body {
+	font-family: Verdana, Arial, Helvetica, "Helvetica Neue", sans-serif;
+	font-weight: bold;
+	margin: 0px;
+}
+
+/** Header del frame **/
+#header_items {
+	display:block;
+	width: 700px;
+	background: #000000;
+	color: white;
+	height: 50px;
+}
+
+.nombre_item  {
+	color: white;
+	font-size:15px;
+	font-family: sans-serif;
+	line-height: 49px;
+	margin-left: 45px;
+}
+
+/** Frame izquierdo, imagen del articulo **/
+.slideshow img {
+	width:250px;
+	height:250px;
+	border: #858585 1px solid;
+	border-radius: 15px;
+	padding: 5px;
+	margin-left:15px;
+	margin-top:15px;
+}
+
+
+
+
+#content_items {
+	display:block;
+	width: 700px;
+	height: 260px;
+}
+
+#next a,#next img {
+	position:absolute;
+	width:30px;
+	height:30px;
+	top:180px;
+	left:262px;
+	z-index:9999;
+}
+#prev a,#prev img {
+	position:absolute;
+	width:30px;
+	height:30px;
+	top:180px;
+	left:0px;
+	z-index:9999;
+}
+
+/** Frame derecho, descripcion del articulo **/
+
+.descripcion_item {
+	font: 12px black normal Verdana, Geneva, Arial, Helvetica, sans-serif;
+	position:absolute;
+	top:70px;
+	right:30px;
+	width: 350px;
+}
+.descripcion_item table{
+	border-collapse:collapse;
+	margin-top:5px;
+	width: 300px;
+}
+.descripcion_item table tr {
+	height: 30px;
+	text-align: left;
+	border-bottom: 1px solid #595B5A;
+}
+.descripcion_item table tr td{
+
+}
+.descripcion_item h2 { 
+	color: #595b5a;
+	font-size: 16px;
+	}
+	
+.descripcion_item h3 {
+	color: #ec7636;
+	font-size: 13px;
+	}
+
+.descripcion {
+	text-align: justify;
+}
+	

@@ -1,0 +1,1 @@
+[15-Feb-2012 22:50:11] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'villadel_villa'@'127.0.0.1' (using password: NO) in /home/villadel/public_html/admin/CRUDGenerator/index.php on line 5
