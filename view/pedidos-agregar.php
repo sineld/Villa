@@ -1,3 +1,19 @@
+<?php 
+
+?>
+
+<form class='form-stacked' name='pedidos' method='post' action='<?php echo $GLOBALS["baseURL"];?>crud.php'>
+	<input type="hidden" name="view" value="pedidos" />
+	<input type="hidden" name="action" value="crearPedidos" />
+	<label>Cliente</label>
+	<input type="text" id="id_cliente" name="id_cliente" />
+	<label>Credito</label>
+	<input type="text" id="tipo_pago" name="tipo_pago" />
+	<label>Forma de pago</label>
+	<input type="text" id="tipo_pago" name="forma_pago" />
+	<input class="btn primary" type="submit" value="Enviar" id="enviar"/>
+</form>
+<!--
 <table>
 	<thead>
 		<tr>
@@ -20,3 +36,4 @@
 		</tr>
 	</tbody>
 </table>
+-->
