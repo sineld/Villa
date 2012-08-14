@@ -24,6 +24,7 @@ Doctrine_Manager::getInstance()->bindComponent('Articulos', 'villadel_villa');
  * @property integer $tipo
  * @property Categorias $Categorias
  * @property Tipos $Tipos
+ * @property Doctrine_Collection $ArticulosPedido
  * @property Doctrine_Collection $FotosArt
  * @property Doctrine_Collection $PrecioArt
  * 
@@ -184,6 +185,10 @@ abstract class BaseArticulos extends Doctrine_Record
              'local' => 'tipo',
              'foreign' => 'id'));
 
+        $this->hasMany('ArticulosPedido', array(
+             'local' => 'id',
+             'foreign' => 'id_articulo'));
+
         $this->hasMany('FotosArt', array(
              'local' => 'id',
              'foreign' => 'id_art'));
@@ -191,11 +196,5 @@ abstract class BaseArticulos extends Doctrine_Record
         $this->hasMany('PrecioArt', array(
              'local' => 'id',
              'foreign' => 'id_art'));
-             
-        $this->actAs('Searchable', array(
-                'fields' => array('codigo', 'descripcion', 'nombre')
-            )
-        );
     }
 }
-?>

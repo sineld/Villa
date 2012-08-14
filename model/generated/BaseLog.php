@@ -14,8 +14,8 @@ Doctrine_Manager::getInstance()->bindComponent('Log', 'villadel_villa');
  * @property integer $idlogtype
  * @property timestamp $fecha
  * @property integer $inactivo
- * @property LogType $LogType
  * @property User $User
+ * @property LogType $LogType
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -94,12 +94,12 @@ abstract class BaseLog extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('LogType', array(
-             'local' => 'idlogtype',
-             'foreign' => 'id'));
-
         $this->hasOne('User', array(
              'local' => 'iduser',
+             'foreign' => 'id'));
+
+        $this->hasOne('LogType', array(
+             'local' => 'idlogtype',
              'foreign' => 'id'));
     }
 }
