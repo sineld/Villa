@@ -62,8 +62,15 @@
 	id_tipo_cliente = <?php if (isset($_SESSION['cliente'])) { echo $_SESSION['cliente']->id_tipo; } else if (isset($_SESSION['vendedor'])) { echo $_SESSION['vendedor']->id_tipo; }else { echo 'null'; } ?>;
 	cat = <?php if (isset($_GET['categoria'])) { echo $_GET['categoria']; } else { echo 'null'; } ?>;
 	tipo = <?php if (isset($_GET['tipo'])){ echo $_GET['tipo']; } else { echo 'null'; }?>;
+	key_pedido = <?php if (isset($_SESSION['cliente']->id_pedido)) {echo $_SESSION['cliente']->id_pedido;} else { echo 'null';} ?>;
 	$(document).ready(function() {
-		
+		$('.enviar-item').live("click",function(event){
+			event.preventDefault();
+			//ACA LLAMAS A AÑADIR ITEMS AL PEDIDO
+			_valores = $(this).siblings('.pedidos-cant');
+			sendItemPedido(_valores.attr('value'),_valores.attr('attr'),key_pedido);
+		    alert(key_pedido);
+		});
 		$('.mini').live("click",function(event){
 			event.preventDefault();
 			$('.big').attr('src',$(this).attr('src'));
@@ -184,8 +191,44 @@
 		});
 	}
 	
-	
-	
+	//Funcion para enviar por AJAX los items que el cliente quiere al pedido abierto.
+	function sendItemPedido(cant,id_art,id_ped){
+		var pedidos;
+		$.ajax({
+		type : "POST",
+		url : "crud.php",
+		dataType : 'html',
+		async : false,
+		data : {
+			view: 'pedidos',
+			action: 'newItemPedido',
+			cantidad : cant,
+			id_articulo : id_art,
+			id_pedido : id_ped
+		},
+		success : function(data) {
+			key_pedidos = data;
+		},
+		error : function(jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                alert('Not connect.\n Verify Network.');
+            } else if (jqXHR.status == 404) {
+                alert('Requested page not found. [404]');
+            } else if (jqXHR.status == 500) {
+                alert('Internal Server Error [500].');
+            } else if (exception === 'parsererror') {
+                alert('Requested JSON parse failed.');
+            } else if (exception === 'timeout') {
+                alert('Time out error.');
+            } else if (exception === 'abort') {
+                alert('Ajax request aborted.');
+            } else {
+                alert('Uncaught Error.\n' + jqXHR.responseText);
+            }
+        }
+		
+		});
+	}
 	
 	
 	function getArticulos(pag, cat, tipo, itc) {
@@ -228,14 +271,16 @@
 		}
 		content += '</div></div><p class="pedidos_nombre">'+data["nombre"]+'</p>';
 		if (data['precio'] != null){
-		content += '<p><strong class="pedidos_precio"> Bs. '+data['precio']+'</strong></p><a href="#" class="pedidos_boton" name="'+data['id']+'">A'+String.fromCharCode(241)+'adir al pedido</a>';
+			content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><input type="text" attr="'+data["id"]+'" class="pedidos-cant span1" style="text-align: center; height: 17px; margin-top: 10px;" value="" /><a class="enviar-item btn btn-small btn-info" href="#"><i class="icon-shopping-cart icon-white"></i></a></div>';
 		}
 		content += '</div></div>';
 		return content;
 	}
 	
+	
+	//<a href="#" class="pedidos_boton pull-right" name="'+data['id']+'">A'+String.fromCharCode(241)+'adir al pedido</a>
+	
 </script>
-
 <div id="display_articulo_completo" class="modal">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>

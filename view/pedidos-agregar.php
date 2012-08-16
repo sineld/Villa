@@ -1,10 +1,19 @@
-<?php 
+<pre><?php
+require_once 'phputils/mysqlConexion.php';
 
+$query = Doctrine_Query::create()
+				->select('a.*')
+				->from('cliente a')
+				->where('id_usuario =?',$_SESSION['cliente']->id_usuario);
+$data = $query->execute()->toArray();
+
+var_dump($_SESSION['cliente']);
+	 
 ?>
-
+</pre>
 <form class='form-stacked' name='pedidos' method='post' action='<?php echo $GLOBALS["baseURL"];?>crud.php'>
 	<input type="hidden" name="view" value="pedidos" />
-	<input type="hidden" name="action" value="crearPedidos" />
+	<input type="hidden" name="action" value="chequearUsuario" />
 	<label>Cliente</label>
 	<input type="text" id="id_cliente" name="id_cliente" />
 	<label>Credito</label>

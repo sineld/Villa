@@ -13,6 +13,7 @@ Doctrine_Manager::getInstance()->bindComponent('Cliente', 'villadel_villa');
  * @property string $rif
  * @property string $direccion
  * @property integer $id_tipo
+ * @property integer $credito
  * @property string $telefono
  * @property integer $inactivo
  * 
@@ -75,6 +76,16 @@ abstract class BaseCliente extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('credito', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('telefono', 'string', 25, array(

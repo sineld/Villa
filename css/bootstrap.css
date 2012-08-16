@@ -16,8 +16,16 @@ body {
 	background: url('villa/images/back.gif');
 } 	
 .articulos {
+	position: relative;
 	margin-top: 5px;
 	padding-top: 5px;
+	min-height: 125px;
+}
+
+.pedidos_frame {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
 }
 .titulo {
 	border-bottom: 1px solid #ddd;
