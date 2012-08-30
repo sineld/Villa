@@ -1,78 +1,109 @@
 <?php
-
 require_once 'phputils/mysqlConexion.php';
-
 class PedidosDelegate {
 	
-	
-	
-	//Funcion para crear un pedido nuevo.
-	public function crearPedido($validator){
-		
-		$tipo_pago = (int)$validator->getVar('tipo_pago'); //Credito asignado al cliente (en dias), numerico entero. 
-		$id_cliente = (int)$validator->getVar('id_cliente'); //ID del cliente que realiza el pedido.
-		$forma_pago = $validator->getVar('forma_pago'); //Texto, forma de pago seleccionada por el cliente, cheque, transferencia, etc.
-		$newPedido = new Pedidos;
-		$mysqldate = date( 'Y-m-d');
-		$newPedido->fecha_creacion = $mysqldate;
-		$newPedido->tipo_pago = $tipo_pago;
-		$newPedido->id_cliente = $id_cliente;
-		$newPedido->fecha_ult_mod = $mysqldate;
-		$newPedido->forma_pago = $forma_pago;
-		$newPedido->inactivo = 0;
-		$newPedido->estado = 0;
-		$newPedido->save();
-		return 'void';
-	}
-	
-	//Funcion para agregar un item al pedido.
-	public function newItemPedido($validator){
-		$codigo_item = (int)$validator->getVar('id_articulo');
-		$cantidad_item = (int)$validator->getVar('cantidad');
-		$pedido_item = (int)$validator->getVar('id_pedido');
-		//Si el id de pedido es diferente de null, añade items al pedido
-		if($pedido_item != null){
-			$newItem = new ArticulosPedido;
-			$newItem->id_articulo = (int)$codigo_item;
-			$newItem->cantidad = (int)$cantidad_item;
-			$newItem->id_pedido = (int)$pedido_item;
-			$newItem->save();
-			return 'existente';
-		}//Si el id del pedido no existe, crea un pedido nuevo
-		else{
-			$id_cliente = $_SESSION['cliente']->id_usuario;
-			$query = Doctrine_Query::create()
-				->select('a.*')
-				->from('cliente a')
-				->where('id_usuario =?',$id_cliente);
-			
-			$data = $query->execute()->toArray();				
-			$mysqldate = date( 'Y-m-d');
-			$newPedido = new Pedidos;
-			$newPedido->fecha_creacion = $mysqldate;
-			$newPedido->tipo_pago = (int)$data[0]['credito'];
-			$newPedido->id_cliente = (int)$id_cliente;
-			$newPedido->fecha_ult_mod = $mysqldate;
-			$newPedido->forma_pago = 'efectivo';
-			$newPedido->inactivo = 0;
-			$newPedido->estado = 0;
-			$newPedido->save();
-			try {
-				$_SESSION['cliente']->pedido = $newPedido->id;
-			} catch (Exception $e) {
-				echo 'error';
-			}
-			$newItem = new ArticulosPedido;
-			$newItem->id_articulo = (int)$codigo_item;
-			$newItem->cantidad = (int)$cantidad_item;
-			$newItem->id_pedido = (int)$_SESSION['cliente']->pedido;
-			$newItem->save();
-			
+	public function listarPedido($validator){
+		$cliente = (int)$validator->getOptionalVar('id_cliente');
+		$q = Doctrine_Query::create() -> select('*') -> from('pedidos');
+		if ($cliente >= 0) {
+			$q -> where('id_cliente = ?',$cliente);
 		}
-		
+		$qArray = $q -> execute() -> toArray();
+		if (count($qArray) >= 1) {
+			echo json_encode($qArray);
+		} else {
+			return "[]";
+		}
 	}
-
-
+	
+	public function listarArticulos($validator){
+		$id_pedido = (int)$validator->getOptionalVar('id_pedido');
+		$q = Doctrine_Query::create() -> select('*') -> from('articulospedido');
+		if ($cliente >= 0) {
+			$q -> where('id_pedido = ?',$id_pedido);
+		}
+		$qArray = $q -> execute() -> toArray();
+		if (count($qArray) >= 1) {
+			echo json_encode($qArray);
+		} else {
+			echo "[]";
+		}
+	}
+	
+	//Funcion para renderizar cada articulo de la lista de articulos en cada pedido, 
+	//la salida es el codigo, descripcion, imagen, precio y cantidad.
+	
+	public function renderArticulos($validator){
+		$id = (int)$validator->getVar('id_articulo');
+		$pedido = (int)$validator->getVar('id_pedido');
+		//Obtengo informacion de la tabla articulos
+		$qArticulo = Doctrine::getTable('articulos')->findOneById($id);
+		//Obtengo informacion de la tabla fotos_art
+		$qFotosArt = Doctrine_Query::create()
+				-> select('*')
+				-> from('fotosArt')
+				-> where('id_art = ?',$id)
+				//-> andWhere('prioridad = 1')
+				-> andWhere('inactivo = 0');
+		$fotosArt = $qFotosArt -> execute() -> toArray();
+		//Obtengo informacion de la tabla fotos
+		$qFotos = Doctrine_Query::create()
+				-> select('*')
+				-> from('fotos')
+				-> where('id = ?',$fotosArt[0]['id_foto'])
+				-> andWhere('inactivo = 0');
+		$fotos = $qFotos -> execute() -> toArray();
+		//Obtengo informacion de la tabla Pedido
+		$qPedido = Doctrine_Query::create()
+				-> select('*')
+				-> from('pedidos')
+				-> where('id = ?',$pedido)
+				-> andWhere('inactivo = 0');
+		$pedido = $qPedido -> execute() -> toArray();
+		//Obtengo informacion de la tabla cliente
+		$qCliente = Doctrine_Query::create()
+				-> select('*')
+				-> from('cliente')
+				-> where('id = ?',$pedido[0]['id_cliente'])
+				-> andWhere('inactivo = 0');
+		$cliente = $qCliente -> execute() -> toArray();
+		//Obtengo informacion de la tabla precio_art
+		$qPrecioArt = Doctrine_Query::create()
+				-> select('*')
+				-> from('precioArt')
+				-> where('id_art = ?',$id)
+				-> andWhere('id_tipo_cliente = ?',$cliente[0]['id_tipo'])
+				-> andWhere('inactivo = 0');
+		$precioArt = $qPrecioArt -> execute() -> toArray();
+		//Obtengo informacion de la tabla precio
+		$qPrecio = Doctrine_Query::create()
+				-> select('*')
+				-> from('precios')
+				-> where('id = ?',$precioArt[0]['id_precio'])
+				-> andWhere('inactivo = 0');
+		$precio = $qPrecio -> execute() -> toArray();
+		//Obtengo informacion de la tabla articulos_pedido
+		$qArticulosPedido = Doctrine_Query::create()
+				-> select('*')
+				-> from('ArticulosPedido')
+				-> where('id_pedido = ?',$pedido[0]['id'])
+				-> andWhere('id_articulo = ?', $id)
+				-> andWhere('inactivo = 0');
+		$articulosPedido = $qArticulosPedido -> execute() -> toArray();
+		
+		$salida = array(
+			"codigo" => $qArticulo->codigo,
+			"nombre" => $qArticulo->nombre,
+			"foto" => $fotos[0]['direccion'].'thumbs/'.$fotos[0]['descripcion'].'.jpg',
+			"precio" => $precio[0]['precio'],
+			"cantidad" => $articulosPedido[0]['cantidad'],
+		);
+		if (count($salida) >= 1) {
+			echo json_encode($salida);
+		} else {
+			echo "[]";
+		}
+	}
  	//Funcion para modificar items en pedido y/o inactivar/activar.
 	public function modItemPedido($validator){
 		$id = $validator->getVar('key_articulo');

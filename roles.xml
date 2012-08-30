@@ -47,6 +47,7 @@
 		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>	
 		<view read='true' edit='true' delete='true' add='true'>listarusuarios</view>
+		<view read='true' edit='true' delete='true' add='true'>listararticulospedido</view>
 	</role>
 	
 	<role name="cliente">
@@ -57,7 +58,6 @@
 		<view read='true' edit='true' delete='true' add='true'>change-password</view>
 		<view read='true' edit='true' delete='true' add='true'>private</view>	
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>		
-		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
 	</role>
 	
 	<role name="vendedor">

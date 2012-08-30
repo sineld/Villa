@@ -62,14 +62,16 @@
 	id_tipo_cliente = <?php if (isset($_SESSION['cliente'])) { echo $_SESSION['cliente']->id_tipo; } else if (isset($_SESSION['vendedor'])) { echo $_SESSION['vendedor']->id_tipo; }else { echo 'null'; } ?>;
 	cat = <?php if (isset($_GET['categoria'])) { echo $_GET['categoria']; } else { echo 'null'; } ?>;
 	tipo = <?php if (isset($_GET['tipo'])){ echo $_GET['tipo']; } else { echo 'null'; }?>;
-	key_pedido = <?php if (isset($_SESSION['cliente']->id_pedido)) {echo $_SESSION['cliente']->id_pedido;} else { echo 'null';} ?>;
+	id_cliente_pedidos = <?php if (isset($_SESSION['cliente'])){ echo $_SESSION['cliente']->id_usuario; }  else { echo 'null';} ?>;
 	$(document).ready(function() {
 		$('.enviar-item').live("click",function(event){
 			event.preventDefault();
 			//ACA LLAMAS A AÑADIR ITEMS AL PEDIDO
 			_valores = $(this).siblings('.pedidos-cant');
-			sendItemPedido(_valores.attr('value'),_valores.attr('attr'),key_pedido);
-		    alert(key_pedido);
+			$.when(procesarItem(_valores.attr('value'),_valores.attr('attr'))).then(function(data){
+				alert('Item agregado: '+respuesta);
+			});
+			
 		});
 		$('.mini').live("click",function(event){
 			event.preventDefault();
@@ -190,43 +192,23 @@
 			}
 		});
 	}
+
 	
 	//Funcion para enviar por AJAX los items que el cliente quiere al pedido abierto.
-	function sendItemPedido(cant,id_art,id_ped){
-		var pedidos;
-		$.ajax({
+	function procesarItem(cant,id_art){
+		return $.ajax({
 		type : "POST",
 		url : "crud.php",
 		dataType : 'html',
-		async : false,
 		data : {
-			view: 'pedidos',
-			action: 'newItemPedido',
+			view: 'catalogo',
+			action: 'añadirItemPedido',
 			cantidad : cant,
 			id_articulo : id_art,
-			id_pedido : id_ped
-		},
-		success : function(data) {
-			key_pedidos = data;
-		},
-		error : function(jqXHR, exception) {
-            if (jqXHR.status === 0) {
-                alert('Not connect.\n Verify Network.');
-            } else if (jqXHR.status == 404) {
-                alert('Requested page not found. [404]');
-            } else if (jqXHR.status == 500) {
-                alert('Internal Server Error [500].');
-            } else if (exception === 'parsererror') {
-                alert('Requested JSON parse failed.');
-            } else if (exception === 'timeout') {
-                alert('Time out error.');
-            } else if (exception === 'abort') {
-                alert('Ajax request aborted.');
-            } else {
-                alert('Uncaught Error.\n' + jqXHR.responseText);
-            }
-        }
-		
+			},
+		success : function(data){
+			respuesta = data;
+			}
 		});
 	}
 	
@@ -356,10 +338,3 @@
   <div class="modal-footer">
   </div>
 </div>
-
-
-
-<?php if (isset($_SESSION['cliente'])) {?>
-
-
-<?php } ?>

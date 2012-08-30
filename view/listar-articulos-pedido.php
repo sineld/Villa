@@ -1,42 +1,54 @@
-<pre>
-	<div id="prueba_pedidos"></div>
-</pre>
+
+<div id="prueba_pedidos">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Codigo</th>
+				<th>Descripcion</th>
+				<th>Imagen</th>
+				<th>Precio unitario</th>
+				<th>Cantidad</th>
+				<th>Total</th>				
+			</tr>
+		</thead>
+		<tbody id="render_pedido">
+		</tbody>
+	</table>
+</div>
 <script type="text/javascript">
 
 
 $(document).ready(function() {
-	getPedidos(1);
+	id_pedido = <?php if(isset($_GET['id_pedido'])){echo $_GET['id_pedido'];}else{echo null;}?>; 
+	$.when(getArticulos(id_pedido)).then(function(){
+	});
 	
-	
-	$('#prueba_pedidos table tbody tr').live("click",function(event){
-		
-			valor=$(this).children('.tabla_id_pedido').attr('attr');
-			event.preventDefault();
-			prueba = <?php echo '"'.$GLOBALS["baseURL"].'"';?>;
-			window.location = prueba+'listararticulospedido&id_pedido='+valor;
-		});
 });
-
-function getArticulosPedido(id){
-	
-}
-function getPedidos(id) {
-		$.ajax({
+function getArticulos(id) {
+		 return $.ajax({
 			type : "POST",
 			url : "crud.php",
 			dataType : "json",
+			//async : false,
 			data : {
 				view : 'pedidos',
-				action : 'listarPedido',
-				id_cliente : id
+				action : 'listarArticulos',
+				id_pedido : id
 			},
 			success : function(data) {
-				var html = '<table class="table table-striped"><thead><tr><th>Nº Pedido</th><th>Nº Cliente</th><th>Fecha de Creacion</th><th>Ultima modificacion</th><th>Credito</th><th>Forma de pago</th><th>Status</th></tr></thead><tbody>';
+				varTotal = 0;
 				for (var i in data) {
-					 html += renderPedidos(data[i]);
+					 	$.when(cargarArticulos(data[i]['id_articulo'],id_pedido)).then(function(){
+					 	$('#render_pedido').append(salidaArticulos);
+					 	varTotal += parseFloat(total);
+					 });
 				}
-				html += '</tbody></table>';
-				$('#prueba_pedidos').append(html);
+				html = '<tr><td></td><td></td><td></td><td></td><td><h4>Subtotal:</h4></td><td><h4>'+varTotal+' Bs.F</h4></td></tr>'
+				html += '<tr><td></td><td></td><td></td><td></td><td><h4>I.V.A:</h4></td><td><h4>'+(varTotal*0.12).toFixed(2)+' Bs.F</h4></td></tr>'
+				iva=(varTotal*0.12).toFixed(2);
+				total = (parseFloat(varTotal)+parseFloat(iva));
+				html += '<tr><td></td><td></td><td></td><td></td><td><h4>Total:</h4></td><td><h4>'+total+' Bs.F</h4></td></tr>'
+				$('#render_pedido').append(html);
 			},
 			error : function (xhr, ajaxOptions, thrownError){
                     alert(xhr.status);
@@ -44,49 +56,33 @@ function getPedidos(id) {
                    }
 		});
 	}
-	function renderPedidos(data){
-		var content = '<tr>';
-		content += '<td class="tabla_id_pedido" attr="'+data["id"]+'">'+data["id"]+'</td>';
-		content += '<td>'+data["id_cliente"]+'</td>';
-		content += '<td>'+data["fecha_creacion"]+'</td>';
-		content += '<td>'+data["fecha_ult_mod"]+'</td>';
-		switch(data["tipo_pago"]){
-			case '0':
-			content += '<td>Contado</td>';
-			break;
-			default:
-			content += '<td>'+data['tipo_pago']+' Días.</td>';
-			break;
-		}
-		switch(data["forma_pago"]){
-			case '0':
-			content += '<td>Efectivo</td>';
-			break;
-			case '1':
-			content += '<td>Cheque</td>';
-			break;
-			case '3':
-			content += '<td>Transferencia</td>';
-			break;
-			default:
-			content += '<td>N/D</td>';
-			break;
-		}
-		switch(data["estado"]){
-			case '0':
-			content += '<td>Activo</td>';
-			break;
-			case '1':
-			content += '<td>Procesando</td>';
-			break;
-			case '3':
-			content += '<td>Finalizado</td>';
-			break;
-			default:
-			content += '<td>N/D</td>';
-			break;	
-		}
-		return content;
+	
+	function cargarArticulos(id, pedido){
+		return $.ajax({
+			type : "POST",
+			url : "crud.php",
+			dataType : "json",
+			async : false,
+			data : {
+				view : 'pedidos',
+				action : 'renderArticulos',
+				id_articulo : id,
+				id_pedido : pedido
+			},
+			success : function(data) {
+				html = '<tr>';
+				html += '<td>'+data['codigo']+'</td>';
+				html += '<td>'+data['nombre']+'</td>';
+				html += '<td><img src="http://localhost/villa'+data['foto']+'" /></td>';
+				html += '<td>'+data['precio']+' Bs. </td>';
+				html += '<td>'+data['cantidad']+'</td>';
+				html += '<td>'+(data['cantidad']*data['precio']).toFixed(2)+' Bs. </td>';
+				html += '</tr>';
+				total = (data['cantidad']*data['precio']).toFixed(2);
+				salidaArticulos = html;
+			}
+
+		});
 	}
 </script>
 <!--

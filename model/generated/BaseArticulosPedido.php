@@ -11,8 +11,7 @@ Doctrine_Manager::getInstance()->bindComponent('ArticulosPedido', 'villadel_vill
  * @property integer $id_pedido
  * @property integer $id_articulo
  * @property integer $cantidad
- * @property Pedidos $Pedidos
- * @property Articulos $Articulos
+ * @property integer $inactivo
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -59,17 +58,20 @@ abstract class BaseArticulosPedido extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
+        $this->hasColumn('inactivo', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Pedidos', array(
-             'local' => 'id_pedido',
-             'foreign' => 'id'));
-
-        $this->hasOne('Articulos', array(
-             'local' => 'id_articulo',
-             'foreign' => 'id'));
+        
     }
 }

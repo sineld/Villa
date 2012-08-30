@@ -9,13 +9,12 @@ Doctrine_Manager::getInstance()->bindComponent('Pedidos', 'villadel_villa');
  * 
  * @property integer $id
  * @property timestamp $fecha_creacion
- * @property integer $tipo_pago
  * @property timestamp $fecha_ult_mod
- * @property string $forma_pago
+ * @property integer $tipo_pago
+ * @property integer $forma_pago
  * @property integer $id_cliente
  * @property integer $estado
  * @property integer $inactivo
- * @property Doctrine_Collection $ArticulosPedido
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -40,15 +39,7 @@ abstract class BasePedidos extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             ));
-        $this->hasColumn('tipo_pago', 'integer', 4, array(
-             'type' => 'integer',
-             'length' => 4,
-             'fixed' => false,
-             'unsigned' => false,
-             'primary' => false,
+             'default' => '0000-00-00 00:00:00',
              'notnull' => true,
              'autoincrement' => false,
              ));
@@ -61,8 +52,18 @@ abstract class BasePedidos extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
-        $this->hasColumn('forma_pago', 'string', null, array(
-             'type' => 'string',
+        $this->hasColumn('tipo_pago', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('forma_pago', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
@@ -93,7 +94,6 @@ abstract class BasePedidos extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'default' => '0',
              'notnull' => true,
              'autoincrement' => false,
              ));
@@ -102,8 +102,6 @@ abstract class BasePedidos extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('ArticulosPedido', array(
-             'local' => 'id',
-             'foreign' => 'id_pedido'));
+        
     }
 }

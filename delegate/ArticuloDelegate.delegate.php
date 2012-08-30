@@ -323,5 +323,42 @@ class ArticuloDelegate {
 
 		echo json_encode($newsItems->toArray());
 	}
+	
+	public function añadirItemPedido($validator){
+		try{		
+			$pedido = new Pedidos;
+			$cliente = $pedido->infoCliente($_SESSION['cliente']->id);
+			$parametros = array(
+				'id_articulo' => $validator->getVar('id_articulo'),
+				'cantidad' => $validator->getVar('cantidad'),
+				'forma_pago' => 0,
+				'tipo_pago' => $cliente['credito'],
+				'id_cliente' => $cliente['id'],
+				'inactivo' => 0,
+			);
+			foreach($parametros as $verificar){
+				if(!is_numeric($verificar)) return 'error, un dato ingresado no es numerico.';
+			}
+			if (isset($_SESSION['cliente']->pedido) and ((int)$_SESSION['cliente']->pedido >= 0)) //Si existe la variable global de pedido, añade un item a dicho pedido. 
+			{
+				$parametros['id_pedido'] = $_SESSION['cliente']->pedido;
+				$salida['articulo'] = $pedido->newItemPedido($parametros);
+				if(!is_numeric($salida['articulo'])) return 'error al ingresar el item al pedido';
+			}
+			else //Si no existe la variable global con el numero de pedido, llama a crear un pedido nuevo y luego añadir un item nuevo.
+			{
+				$salida['pedido'] = $pedido->newPedido($parametros);
+				$_SESSION['cliente']->pedido = (int)$salida['pedido'];
+				$parametros['id_pedido'] = (int)$salida['pedido'];
+				$salida['articulo'] = $pedido->newItemPedido($parametros);
+				if(!is_numeric($salida['articulo']) or !is_numeric($salida['pedido'])) return 'error al ingresar item/pedido nuevo.';
+			}
+			echo 'success';
+			return 'void';
+			}
+		catch (Exception $e){
+			return 'Message: ' .$e->getMessage();
+		}
+	}
 }
 ?>

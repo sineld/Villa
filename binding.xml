@@ -12,8 +12,8 @@
 	
 	<view name="mobile" url="mobile.php" class="ArticuloDelegate" template="mobile" styles="mobile.css"/>	
 	
-	<view name="pedidos" url="pedidos-agregar.php" class="PedidosDelegate" template="newdesign"/>
-	
+	<view name="pedidos" url="pedidos-agregar.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
+	<view name="listararticulospedido" url="listar-articulos-pedido.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
 	<view name="modificararticulos" url="articulos-modificar.php" class="ArticuloDelegate" template="admin" styles="administracion.css" >
 		<getter destination="entity">getCategoriasArray</getter>
 	</view>
