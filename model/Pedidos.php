@@ -1,5 +1,4 @@
 <?php
-require_once 'phputils/mysqlConexion.php';
 /**
  * Pedidos
  * 
@@ -41,32 +40,41 @@ class Pedidos extends BasePedidos
 	
 	//Funcion para procesar el ingreso de items a un pedido.
 	
-	public function newPedido($data){
-		foreach($data as $verificar){
+	public function newPedido($data)
+	{
+		foreach($data as $verificar)
+		{
 			if(!is_numeric($verificar)) return 'error, dato no numerico.';
 		}
 		$id_cliente = $data['id_cliente']; //ID del cliente que realiza el pedido.
 		$newPedido = new Pedidos;
 		$mysqldate = date('Y-m-d');
-		try {
+		try 
+		{
 			$newPedido->fecha_creacion = $mysqldate;
 			$newPedido->fecha_ult_mod = $mysqldate;
 		//Si el tipo de pago es superior o igual a 0 dias, lo procesa, sino usa el default 0.
-			if ($tipo_pago >= 0) {
+			if ($tipo_pago >= 0) 
+			{
 				$newPedido->tipo_pago = (int)$data['tipo_pago'];	
-			} else {
+			} else 
+			{
 				$newPedido->tipo_pago = 0;
 			}
 		//Si el id de cliente no existe, retorna error, sino lo procesa.
-			if (($id_cliente == null) || ($id_cliente == 'undefined')) {
+			if (($id_cliente == null) || ($id_cliente == 'undefined'))
+			{
 				return 'cliente invalido';
-			}else{
+			}else
+			{
 				$newPedido->id_cliente = (int)$id_cliente;	
 			}
 		//Si la forma de pago no existe, usa el default, 0 = efectivo, 1 = cheque, 2 = transferencia. 
-			if ($forma_pago >= 0){
+			if ($forma_pago >= 0)
+			{
 				$newPedido->forma_pago = (int)$data['forma_pago'];
-			}else{
+			}else
+			{
 				$newPedido->forma_pago = 0;
 			}
 			$newPedido->inactivo = (int)$data['inactivo'];
@@ -74,7 +82,9 @@ class Pedidos extends BasePedidos
 		
 			$newPedido->save();
 			return $newPedido->id;
-		} catch (Exception $e){
+		}
+		catch (Exception $e)
+		{
 			return 'Message: ' .$e->getMessage();
 		}
 		
