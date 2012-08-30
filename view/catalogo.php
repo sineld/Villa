@@ -23,9 +23,8 @@
 			?>		
 		</ul>
 	</div>
-	<div class="span2 pull-right" id="cant_paginas"></div>
-</div>
-<div class="span12 row">
+	</div>
+	<div class="span12 row">
 	<div class="span2 well" style="padding: 8px 0;">
 		<ul class="nav nav-list">
 		<?php 
@@ -40,7 +39,7 @@
 			foreach ($data1 as $d1){
 				$aux1 = ucfirst($d1->{'nombre'});
 				$id_tipo = $d1->{'id'};
-				echo '<li categoria-id="'.$id_cat.'" tipo-id="'.$id_tipo.'"><a title="'.$aux1.'" href="catalogo2&categoria='.$id_cat.'&tipo='.$id_tipo.'">'.$aux1.'</a></li>';
+				echo '<li categoria-id="'.$id_cat.'" tipo-id="'.$id_tipo.'"><a title="'.$aux1.'" href="catalogo2012&categoria='.$id_cat.'&tipo='.$id_tipo.'">'.$aux1.'</a></li>';
 			}
 		}
 		?>
@@ -48,8 +47,42 @@
 	
 		
 	</div>
-	<div class="span8">
-		<div class="row mostrar_items ">
+	
+	
+	<!--<div class="span2">
+		<div class="barra_catalogo">
+			<ul id="menu_lateral" >
+		<?php 
+		$cat = new categorias_handler;
+		$tip = new tipos_handler;
+		$data = json_decode($cat->getCategorias(null,null,null,0));
+		foreach($data as $d){
+			$aux = strtoupper($d->{'nombre'});
+			$id_cat = $d->{'id'};
+			if($id_cat == 1){
+				echo '<li id="catalogo_inicio" categoria-id="'.$id_cat.'"><a>'.ucfirst(strtolower($aux)).'</a>';
+			}
+			else {
+				echo '<li categoria-id="'.$id_cat.'"><a>'.ucfirst(strtolower($aux)).'</a>';
+			}
+			$data1 = json_decode($tip->getTipos(0, null, $d->{'id'}));
+			if(count($data1)>0){
+				echo '<ul class="submenu" style="display:none">';
+				foreach ($data1 as $d1){
+					$aux1 = ucfirst($d1->{'nombre'});
+					$id_tipo = $d1->{'id'};
+					echo '<li categoria-id="'.$id_cat.'" tipo-id="'.$id_tipo.'"><a title="'.$aux1.'" href="catalogo2012&categoria='.$id_cat.'&tipo='.$id_tipo.'">'.$aux1.'</a></li>';
+				}
+				echo '</ul>';
+			}
+			echo '</li>';
+		}
+		?>
+			</ul>
+		</div>
+	</div>-->
+	<div class="span8 recuadro_degradado">
+		<div class="row mostrar_items" style="margin-right: -20px;">
 			<div class="span4 1ra_columna"></div>
 			<div class="span4 2da_columna"></div>
 		</div>
@@ -64,15 +97,23 @@
 	tipo = <?php if (isset($_GET['tipo'])){ echo $_GET['tipo']; } else { echo 'null'; }?>;
 	id_cliente_pedidos = <?php if (isset($_SESSION['cliente'])){ echo $_SESSION['cliente']->id_usuario; }  else { echo 'null';} ?>;
 	$(document).ready(function() {
+						
 		$('.enviar-item').live("click",function(event){
 			event.preventDefault();
 			//ACA LLAMAS A AÑADIR ITEMS AL PEDIDO
-			_valores = $(this).siblings('.pedidos-cant');
-			$.when(procesarItem(_valores.attr('value'),_valores.attr('attr'))).then(function(data){
-				
+			
+			$.when(procesarItem(1,$(this).attr('attr'))).then(function(data){
+				$('.articulos').each(function(index){
+					alert(index);
+				});
 			});
 			
 		});
+		
+		
+			
+		
+		//alert($('.articulos').find('stock').text());
 		$('.mini').live("click",function(event){
 			event.preventDefault();
 			$('.big').attr('src',$(this).attr('src'));
@@ -239,21 +280,21 @@
 	}
 	function renderArticulos(data){
 		var content = '<div class="row articulos">';
-		content += '<div class="span1 imagen"><a id="'+data['id']+'" class="thumbnail link_articulo" href="#"><img src="'+data["foto"]+'"></a></div>';
+		content += '<div class="span1 imagen"><a id="'+data['id']+'" class="thumbnail link_articulo" style="background: white;" href="#"><img src="'+data["foto"]+'"></a></div>';
 		content += '<div class="span3"><div class="row titulo"><div class="span2"><h5><a class="link_articulo" id="'+data['id']+'" href="#"><strong>'+data["codigo"].toUpperCase()+'</strong></a></h5></div><div class="span1">';
 		switch(data["agotado"]){
 			case "Agotado":
-				content += '<span class="label label-warning pull-right">'+data['agotado']+'</span>';
+				content += '<span class="stock label label-warning pull-right">'+data['agotado']+'</span>';
 			break;
 			case "Disponible":
-				content += '<span class="label label-success pull-right">'+data['agotado']+'</span>';
+				content += '<span class="stock label label-success pull-right">'+data['agotado']+'</span>';
 			break;
 			default:
 			break;
 		}
 		content += '</div></div><p class="pedidos_nombre">'+data["nombre"]+'</p>';
 		if (data['precio'] != null){
-			content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><input type="text" attr="'+data["id"]+'" class="pedidos-cant span1" style="text-align: center; height: 17px; margin-top: 10px;" value="" /><a class="enviar-item btn btn-small btn-info" href="#"><i class="icon-shopping-cart icon-white"></i></a></div>';
+			content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a class="pedidos-cant enviar-item btn btn-small btn-info" attr="'+data["id"]+'" href="#"><i class="icon-shopping-cart icon-white"></i> Añadir al pedido</a></div>';
 		}
 		content += '</div></div>';
 		return content;

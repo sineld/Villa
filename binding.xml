@@ -7,13 +7,14 @@
 	<view name="catalogo" url="articulos-corta.php" class="ArticuloDelegate"/>
 	<view name="articulo" url="articulos-completo.php" class="ArticuloDelegate" template="vacio"/>
 	<view name="catalogo2" url="articulos-corta-nuevo.php" class="ArticuloDelegate" template="newdesign"/>
+	<view name="catalogo2012" url="catalogo.php" class="ArticuloDelegate" template="2012"/>
 	<view name="agregararticulos" url="articulos-agregar.php" class="ArticuloDelegate" template="admin" styles="administracion.css"  />
 	<view name="listararticulos" url="articulos-listar.php" class="ArticuloDelegate" template="admin" styles="administracion.css"/>
 	
 	<view name="mobile" url="mobile.php" class="ArticuloDelegate" template="mobile" styles="mobile.css"/>	
 	
-	<view name="pedidos" url="pedidos-agregar.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
-	<view name="listararticulospedido" url="listar-articulos-pedido.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
+	<view name="listarpedidos" url="pedidos-agregar.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
+	<view name="pedidos" url="listar-articulos-pedido.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
 	<view name="modificararticulos" url="articulos-modificar.php" class="ArticuloDelegate" template="admin" styles="administracion.css" >
 		<getter destination="entity">getCategoriasArray</getter>
 	</view>

@@ -43,11 +43,11 @@ function getArticulos(id) {
 					 	varTotal += parseFloat(total);
 					 });
 				}
-				html = '<tr><td></td><td></td><td></td><td></td><td><h4>Subtotal:</h4></td><td><h4>'+varTotal+' Bs.F</h4></td></tr>'
+				html = '<tr><td></td><td></td><td></td><td></td><td><h4>Subtotal:</h4></td><td><h4>'+varTotal.toFixed(2)+' Bs.F</h4></td></tr>'
 				html += '<tr><td></td><td></td><td></td><td></td><td><h4>I.V.A:</h4></td><td><h4>'+(varTotal*0.12).toFixed(2)+' Bs.F</h4></td></tr>'
 				iva=(varTotal*0.12).toFixed(2);
 				total = (parseFloat(varTotal)+parseFloat(iva));
-				html += '<tr><td></td><td></td><td></td><td></td><td><h4>Total:</h4></td><td><h4>'+total+' Bs.F</h4></td></tr>'
+				html += '<tr><td></td><td></td><td></td><td></td><td><h4>Total:</h4></td><td><h4>'+total.toFixed(2)+' Bs.F</h4></td></tr>'
 				$('#render_pedido').append(html);
 			},
 			error : function (xhr, ajaxOptions, thrownError){

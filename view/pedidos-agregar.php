@@ -13,7 +13,7 @@ $(document).ready(function() {
 			valor=$(this).children('.tabla_id_pedido').attr('attr');
 			event.preventDefault();
 			prueba = <?php echo '"'.$GLOBALS["baseURL"].'"';?>;
-			window.location = prueba+'listararticulospedido&id_pedido='+valor;
+			window.location = prueba+'pedidos&id_pedido='+valor;
 		});
 });
 

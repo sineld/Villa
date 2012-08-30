@@ -11,6 +11,7 @@
 		<view read='true' edit='true' delete='true' add='true'>forgot2</view>
 		<view read='true' edit='true' delete='true' add='true'>mobile</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 	</role>
 	
 	<role name='admin' >
@@ -47,7 +48,8 @@
 		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>	
 		<view read='true' edit='true' delete='true' add='true'>listarusuarios</view>
-		<view read='true' edit='true' delete='true' add='true'>listararticulospedido</view>
+		<view read='true' edit='true' delete='true' add='true'>listarpedidos</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 	</role>
 	
 	<role name="cliente">
@@ -58,6 +60,7 @@
 		<view read='true' edit='true' delete='true' add='true'>change-password</view>
 		<view read='true' edit='true' delete='true' add='true'>private</view>	
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>		
+		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 	</role>
 	
 	<role name="vendedor">
@@ -67,5 +70,6 @@
 		<view read='true' edit='true' delete='true' add='true'>articulo</view>
 		<view read='true' edit='true' delete='true' add='true'>change-password</view>
 		<view read='true' edit='true' delete='true' add='true'>private</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 	</role>
 </roles>

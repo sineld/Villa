@@ -11,20 +11,50 @@
  */
 class Pedidos extends BasePedidos
 {
-	//Funcion para introducir un item nuevo al pedido.
+	//Funcion para introducir un item nuevo al pedido, el argumento q admite es un array con los siguientes campos
+	//id_articulo, id_pedido, cantidad, inactivo.
 	public function newItemPedido($data){
-		if (isset($data['id_pedido'])) {
-			foreach($data as $valor => $_dato){
-				if (!is_numeric($_dato)){
+		//se verifica que exista un pedido activo
+		if (isset($data['id_pedido']))
+		{
+			//Se verifica que todos los datos de los argumentos de la funcion sean numericos.
+			foreach($data as $valor => $_dato)
+			{
+				if (!is_numeric($_dato))
+				{
 					return 'error: un campo del array no es numerico. '.$valor.' = '.$_dato;
 				}
 			}
-			$newItem = new ArticulosPedido();
-			$newItem->id_articulo = (int)$data['id_articulo'];
-			$newItem->cantidad = (int)$data['cantidad'];
-			$newItem->id_pedido = (int)$data['id_pedido'];
-			$newItem->inactivo = (int)$data['inactivo'];
-		} else
+			
+			//se define un query para verificar que el articulo ingresado no este repetido en el pedido.
+			$query = Doctrine_Query::create()
+						-> select('*')
+						-> from('articulospedido')
+						-> where('id_articulo = ?',$data['id_articulo'])
+						-> andWhere('id_pedido = ?',$data['id_pedido']);
+			$verificador = $query->execute()->toArray();
+			
+			
+			//echo var_dump($verificador);
+			//se verifica que el array de respuesta no tenga objetos y crea un item nuevo, o si tiene objetos, busca el id
+			// que corresponde y realiza la suma de cantidades.
+			if(count($verificador)==0)
+			{
+				$newItem = new ArticulosPedido();
+				$newItem->id_articulo = (int)$data['id_articulo'];
+				$newItem->cantidad = (int)$data['cantidad'];
+				$newItem->id_pedido = (int)$data['id_pedido'];
+				$newItem->inactivo = (int)$data['inactivo'];
+				echo 'item nuevo';
+			}
+			else
+			{
+				$newItem = Doctrine::getTable('articulosPedido')->findOnebyId($verificador[0]['id']);
+				$newItem->cantidad = (int)$newItem->cantidad + (int)$data['cantidad'];  
+				echo 'item repetido';
+			}
+		} 
+		else //si no existe ningun pedido definido, retorna error.
 		{
 			 return 'error: no hay pedido definido.';
 		}
