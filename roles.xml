@@ -45,7 +45,6 @@
 		<view read='true' edit='true' delete='true' add='true'>administracion</view>
 		<view read='true' edit='true' delete='true' add='true'>signup</view>
 		<view read='true' edit='true' delete='true' add='true'>validate</view>
-		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>	
 		<view read='true' edit='true' delete='true' add='true'>listarusuarios</view>
 		<view read='true' edit='true' delete='true' add='true'>listarpedidos</view>
@@ -61,6 +60,7 @@
 		<view read='true' edit='true' delete='true' add='true'>private</view>	
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>		
 		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
+		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
 	</role>
 	
 	<role name="vendedor">

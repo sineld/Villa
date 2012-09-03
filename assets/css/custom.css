@@ -1,3 +1,4 @@
+/** Barra de Navegacio en top **/
 .barra_navegacion ul {
   list-style: none;
 }
@@ -77,6 +78,8 @@
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
 }
+/** Fin de Barra de Navegacion **/
+/** Barra lateral del Catalogo **/
 .barra_catalogo ul {
   list-style: none;
   font-family: 'Open Sans', sans-serif;
@@ -189,6 +192,7 @@
   background: black;
   font: white;
 }
+/** Fin de Barra Lateral **/
 .recuadro_degradado {
   padding-top: 20px;
   padding-left: 20px;
@@ -224,17 +228,26 @@ footer p {
   border-bottom: #ddd 1px solid;
   text-align: center;
 }
-.articulos {
-	position: relative;
-	margin-top: 5px;
-	padding-top: 5px;
-	min-height: 175px;
+div .articulos {
+  position: relative;
+  margin-top: 5px;
+  padding-top: 5px;
+  min-height: 175px;
 }
-.titulo {
-	border-bottom: 1px solid #ddd;
+div .articulos .titulo {
+  border-bottom: 1px solid #ddd;
 }
-.pedidos_frame {
-	position: absolute;
-	right: 10px;
-	bottom: 50px;
+div .articulos .pedidos_frame {
+  position: absolute;
+  right: 10px;
+  bottom: 50px;
+}
+#login {
+  max-width: 300px;
+}
+.borde {
+  border-radius: 7px;
+  -moz-box-shadow: 3px 3px 5px #888;
+  -webkit-box-shadow: 3px 3px 5px #888;
+  box-shadow: 3px 3px 5px #888;
 }

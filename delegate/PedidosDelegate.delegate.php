@@ -30,6 +30,16 @@ class PedidosDelegate {
 		}
 	}
 	
+	
+	public function eliminarArticulo($validator){
+		$argumentos['id_articulo'] = (int)$validator->getVar('id_articulo');
+		$argumentos['campo'] = 'inactivo';
+		$argumentos['valor'] = 1;
+		$eliminar = new Pedidos;
+		echo var_dump($argumentos);
+		return $eliminar->modArticulos($argumentos);
+	}
+	
 	//Funcion para renderizar cada articulo de la lista de articulos en cada pedido, 
 	//la salida es el codigo, descripcion, imagen, precio y cantidad.
 	
@@ -97,6 +107,7 @@ class PedidosDelegate {
 			"foto" => $fotos[0]['direccion'].'thumbs/'.$fotos[0]['descripcion'].'.jpg',
 			"precio" => $precio[0]['precio'],
 			"cantidad" => $articulosPedido[0]['cantidad'],
+			"id_articulo" => $articulosPedido[0]['id'],
 		);
 		if (count($salida) >= 1) {
 			echo json_encode($salida);

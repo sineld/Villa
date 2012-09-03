@@ -35,7 +35,6 @@ class Pedidos extends BasePedidos
 			$verificador = $query->execute()->toArray();
 			
 			
-			//echo var_dump($verificador);
 			//se verifica que el array de respuesta no tenga objetos y crea un item nuevo, o si tiene objetos, busca el id
 			// que corresponde y realiza la suma de cantidades.
 			if(count($verificador)==0)
@@ -128,6 +127,41 @@ class Pedidos extends BasePedidos
 		return $query[0];
 	}
 
+
+	//Funcion para modificar los campos de la tabla articulos_Pedidos. Argumentos del array:
+	//id_articulo = id unico del pedido en la base de datos,
+	//campo = nombre del campo como esta definido en la tabla, 
+	//valor = valor a ingresar para sustituir en la base de datos.
+	public function modArticulos($data){
+		$query = Doctrine_Core::getTable('articulosPedido')->findOnebyId($data['id_articulo']);
+		switch($data['campo']){
+			case 'id_pedido':
+				$query->id_pedido = $data['valor'];
+			break;
+			case 'id_articulo':
+				$query->id_articulo = $data['valor'];
+			break;
+			case 'cantidad':
+				$query->cantidad = $data['valor'];
+			break;
+			case 'inactivo':
+				$query->inactivo = $data['valor'];
+			break;
+		}
+		try {
+			$query->save();
+			echo 'true';
+			return 'void';
+		} catch (Exception $e){
+			return 'error';
+		}
+	}
+	
+	
+	//Funcion para modificar los campos de la tabla Pedidos. Argumentos del array:
+	//id_pedido = id unico del pedido en la base de datos,
+	//campo= nombre del campo como esta definido en la tabla, 
+	//valor = valor a ingresar para sustituir en la base de datos.
 	public function modPedidos($data){
 		$pedido = Doctrine::getTable('pedidos')->findOnebyId($data['id_pedido']);
 		$mysqldate = date('Y-m-d');
