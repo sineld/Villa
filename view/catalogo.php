@@ -19,7 +19,10 @@
 					$tipo = $tipo_handler->getTipos(0,$id_tipo,null,null,null);
 					$tipo_itm = json_decode($tipo);
 					echo '<li class="active"><a href="#">'.ucfirst($tipo_itm[0]->{'nombre'}).'</a></li>';
-				} 
+				}
+				if(!isset($_GET['categoria']) and !isset($_GET['tipo'])){
+					echo '<li class="active"><a href="#">Todos los articulos</a></li>';
+				}
 			?>		
 		</ul>
 	</div>

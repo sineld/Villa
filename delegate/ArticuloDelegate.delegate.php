@@ -323,7 +323,30 @@ class ArticuloDelegate {
 
 		echo json_encode($newsItems->toArray());
 	}
-	
+	public function añadirArticuloSesion($validator){
+		if(isset($_SESSION['cliente']->articulos)){
+			$match = false;
+			$datos = $_SESSION['cliente']->articulos;
+			foreach($datos as $key => &$value){
+				if($key == $validator->getVar('id_articulo')){
+					$value = (int)$value + (int)$validator->getVar('cantidad');
+					$match = true;
+					break;
+				}
+			}
+			if(!$match){
+				$datos[(string)$validator->getVar('id_articulo')] = (int)$validator->getVar('cantidad');
+			}
+			$_SESSION['cliente']->articulos = $datos;
+		}
+		else {
+			$_SESSION['cliente']->articulos = array(
+			(string)$validator->getVar('id_articulo') => (int)$validator->getVar('cantidad'),
+			);
+		}		
+		echo json_encode($_SESSION['cliente']->articulos);
+		return 'void';
+	}
 	public function añadirItemPedido($validator){
 		try{		
 			$pedido = new Pedidos;

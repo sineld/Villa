@@ -3,17 +3,59 @@
       return this
   }
 
-	$(document).ready(function() {			
-		$('.enviar-item').live("click",function(event){
-			event.preventDefault();
-			//ACA LLAMAS A AÑADIR ITEMS AL PEDIDO
-			
+	$(document).ready(function() {	
+		
+	
+		//Metodo para captar los clicks en los botones de añadir item al pedido.
+		$(document).on('click','.enviar-item',function(event){
+			event.preventDefault();			
 			$.when(procesarItem(1,$(this).attr('attr'))).then(function(data){
-				
 			});
-			
 		});
-		//alert($('.articulos').find('stock').text());
+		
+		//Funciones usadas para validar la data ingresada al formulario de login
+		var container = $('div#error_container');
+		$.validator.addMethod('caracteres', function (value) { 
+    		return /^([a-zA-Z0-9]*)$/.test(value);
+			}, 'La contrase&ntilde;a que introdujo no es v&aacute;lida');
+	
+		$(document).on('click','#csubmit',function(){
+			$("#cloginForm").validate({
+				errorContainer: container,
+				errorLabelContainer: $("ol", container),
+				wrapper: 'li',
+				meta: "validate",
+				rules: {
+					user : {
+						required : true,
+						email : true
+					},
+					password : {
+						required : true,
+						minlength: 5,
+						maxlength: 15,
+						caracteres : true
+					}
+				},
+				messages : {
+					user : "Por favor introduzca su Email",
+					password : "Por favor introduzca su Contraseña (solo letras y n&uacute;meros entre 5 y 15 caracteres)"
+				},
+				submitHandler: function(form) {
+					jQuery(form).ajaxSubmit({
+							beforeSubmit: function(formData, jqForm, options){
+								var pass = $("#cpassword").val();
+								formData[formData.length] = { "name": "password", "value": $.sha1(pass) };
+								return true;
+							},
+							target: ".login_error"
+						});
+				}	
+			});	
+		});
+		//FIN DE FUNCIONES PARA LOGIN
+		
+		
 		$('.mini').live("click",function(event){
 			event.preventDefault();
 			$('.big').attr('src',$(this).attr('src'));
@@ -29,17 +71,24 @@
    			event.preventDefault;
    			$("#display_articulo_completo").modal('toggle');
    		});
-		$('.nav-list li[tipo-id="'+tipo+'"] ').addClass("active");
-		
-		totalpag = getPaginationArt(cat,tipo);
-		getArticulos(1,cat,tipo,id_tipo_cliente);
+   		if(tipo!='undefined'){
+   			$('.nav-list li[tipo-id="'+tipo+'"] ').addClass("active");
+   			if(cat!='undefined'){
+   				totalpag = getPaginationArt(cat,tipo);	
+   				if(id_tipo_cliente!='undefined'){
+   					getArticulos(1,cat,tipo,id_tipo_cliente);			
+   				}
+   			}
+   		}
 		var pagactual = 1;
 		if(totalpag<=10){
 			llenarpaginador(totalpag,pagactual,totalpag,totalpag,'#paginador',pagactual);
 		}else{
-			llenarpaginador(10,1,10,totalpag,"#paginador",pagactual);
+			if(totalpag!='undefined'){
+				llenarpaginador(10,1,10,totalpag,"#paginador",pagactual);	
+			}
 		}
-});
+	});
 
 
   
@@ -148,7 +197,7 @@
 		dataType : 'html',
 		data : {
 			view: 'catalogo',
-			action: 'añadirItemPedido',
+			action: 'añadirArticuloSesion',
 			cantidad : cant,
 			id_articulo : id_art,
 			},
@@ -204,7 +253,7 @@
 		if (data['precio'] != null){
 			switch(stock){
 				case true:
-				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a class="pedidos-cant enviar-item btn btn-small btn-info" attr="'+data["id"]+'" href="#"><i class="icon-shopping-cart icon-white"></i> Añadir al pedido</a></div>';
+				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a rel="popover" data-trigger="hover" data-placement="top" data-content="Item añadido correctamente" class="pedidos-cant enviar-item btn btn-small btn-info" attr="'+data["id"]+'" href="#"><i class="icon-shopping-cart icon-white"></i> Añadir al pedido</a></div>';
 				break;
 				case false:
 				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a class="pedidos-cant btn btn-small btn-danger disabled" attr="'+data["id"]+'" href="#"><i class="icon-shopping-cart icon-white"></i> No disponible</a></div>';
@@ -382,7 +431,6 @@ function paginador(primera_pagina,ultima_pagina,pags_show,total,selector,callbac
 		getArticulos(pag_activa.children().attr("id"),cat,tipo,id_tipo_cliente);
 		//Respuesta para avanzar en el paginador
 		if(total>pags_show){
-			
 			if(pag_activa.hasClass("primer-boton")){
 				var margen = pags_show/2
 				if(pag_activa.children().attr("id")<= margen){
