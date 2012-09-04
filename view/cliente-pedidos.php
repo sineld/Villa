@@ -31,20 +31,20 @@
 
 <script type="text/javascript">
 
-
+var cat,tipo,id_tipo_cliente;
 $(document).ready(function() {
 	id_pedido = <?php if(isset($_SESSION['cliente']->pedido)){echo $_SESSION['cliente']->pedido;}else{echo "null";}?>; 
-	$.when(getArticulos(id_pedido)).then(function(){
+	$.when(getArticulosPedido(id_pedido)).then(function(){
 	});
 	
 	$(document).on('click','.boton-eliminar',function(){
 		$(this).parent().parent().remove();
-		$.when(eliminarArticulo($(this).attr("attr"))).done(function(){
+		$.when(eliminarArticuloPedido($(this).attr("attr"))).done(function(){
 			$(this).parent().html("");
 		});
 	});
 });
-function getArticulos(id) {
+function getArticulosPedido(id) {
 		 return $.ajax({
 			type : "POST",
 			url : "crud.php",
@@ -58,7 +58,7 @@ function getArticulos(id) {
 			success : function(data) {
 				varTotal = 0;
 				for (var i in data) {
-					 	$.when(cargarArticulos(data[i]['id_articulo'],id_pedido)).then(function(){
+					 	$.when(cargarArticulosPedido(data[i]['id_articulo'],id_pedido)).then(function(){
 					 	$('#render_pedido').append(salidaArticulos);
 					 	varTotal += parseFloat(total);
 					 });
@@ -77,7 +77,7 @@ function getArticulos(id) {
 		});
 	}
 	
-	function eliminarArticulo(id_articulo){
+	function eliminarArticuloPedido(id_articulo){
 		return $.ajax({
 			type : "POST",
 			url : "crud.php",
@@ -93,7 +93,7 @@ function getArticulos(id) {
 		});
 	}
 	
-	function cargarArticulos(id, pedido){
+	function cargarArticulosPedido(id, pedido){
 		return $.ajax({
 			type : "POST",
 			url : "crud.php",
@@ -113,7 +113,7 @@ function getArticulos(id) {
 				html += '<td>'+data['precio']+' Bs. </td>';
 				html += '<td><input type="text" class="span1" value="'+data['cantidad']+'"/></td>';
 				html += '<td>'+(data['cantidad']*data['precio']).toFixed(2)+' Bs. </td>';
-				html += '<td><img class="boton-eliminar" attr="'+data['id_articulo']+'" width="50%" src="eliminar.png" /> </td>';
+				html += '<td><img class="boton-eliminar" attr="'+data['id_articulo']+'" width="30%" src="eliminar.png" /> </td>';
 				html += '</tr>';
 				total = (data['cantidad']*data['precio']).toFixed(2);
 				salidaArticulos = html;

@@ -4,14 +4,6 @@ start rendering de content view.
 -->
 <?php if(isset($_REQUEST['view'])) {?>
 <title>Importadora La Villa de las Mascotas, C.A.</title>
-
-<script type="text/javascript" src="js/villa/superfish.js"></script>
-<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<script type="text/javascript" src="js/villa/jquery.cycle.all.js"></script>
-<script type="text/javascript" src="js/villa/jquery.paginate.js"></script>
-<link rel="stylesheet" href="css/villa/superfish.css">
-<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

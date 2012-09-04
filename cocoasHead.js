@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="keywords" content="<?php echo $GLOBALS["keywords"]; ?>" >
 <meta name="Language" content="<?php echo $GLOBALS["language"]; ?>" >
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>assets/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/jquery.livequery.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/form.js"></script>
 <script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/sha1.js"></script>
