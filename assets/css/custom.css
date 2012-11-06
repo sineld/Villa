@@ -21,6 +21,9 @@
   background-image: -moz-linear-gradient(bottom, #0e7710 0%, #79bf38 69%);
   background-image: -webkit-linear-gradient(bottom, #0e7710 0%, #79bf38 69%);
   background-image: -ms-linear-gradient(bottom, #0e7710 0%, #79bf38 69%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#0e7710', endColorstr='#79bf38', GradientType=0);
+  /* IE6-8 */
+
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0e7710), color-stop(0.69, #79bf38));
 }
 .barra_navegacion li.boton_ppal:hover {
@@ -29,6 +32,9 @@
   background-image: -moz-linear-gradient(bottom, #3fa83b 0%, #0e7710 69%);
   background-image: -webkit-linear-gradient(bottom, #3fa83b 0%, #0e7710 69%);
   background-image: -ms-linear-gradient(bottom, #3fa83b 0%, #0e7710 69%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#3fa83b', endColorstr='#0e7710', GradientType=0);
+  /* IE6-8 */
+
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3fa83b), color-stop(0.69, #0e7710));
 }
 .barra_navegacion li.activo:hover {
@@ -37,6 +43,9 @@
   background-image: -moz-linear-gradient(bottom, #04669f 2%, #003a6a 69%);
   background-image: -webkit-linear-gradient(bottom, #04669f 2%, #003a6a 69%);
   background-image: -ms-linear-gradient(bottom, #04669f 2%, #003a6a 69%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#04669f', endColorstr='#003a6a', GradientType=0);
+  /* IE6-8 */
+
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.02, #04669f), color-stop(0.69, #003a6a));
 }
 .barra_navegacion .activo {
@@ -58,6 +67,9 @@
   background-image: -moz-linear-gradient(bottom, #00497d 2%, #03a8da 69%);
   background-image: -webkit-linear-gradient(bottom, #00497d 2%, #03a8da 69%);
   background-image: -ms-linear-gradient(bottom, #00497d 2%, #03a8da 69%);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#03a8da', endColorstr='#00497d', GradientType=0);
+  /* IE6-8 */
+
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.02, #00497d), color-stop(0.69, #03a8da));
 }
 .barra_navegacion li a {
@@ -216,7 +228,7 @@ footer {
   font-weight: 400;
   margin-top: 30px;
   padding-top: 15px;
-  background-image: url('../img/fondo_footer.png');
+  background: black;
   margin-bottom: 0;
   color: #BFC5C8;
   min-height: 150px;
@@ -250,4 +262,26 @@ div .articulos .pedidos_frame {
   -moz-box-shadow: 3px 3px 5px #888;
   -webkit-box-shadow: 3px 3px 5px #888;
   box-shadow: 3px 3px 5px #888;
+}
+#tabla-pedido {
+  border: 1px #ababab solid;
+}
+#tabla-pedido tbody td {
+  vertical-align: middle;
+}
+#tabla-pedido thead tr {
+  margin: 0px 0px;
+  color: #FFFFFF;
+  background-color: #363636;
+}
+#tabla-pedido tfoot td {
+  text-align: right;
+}
+#tabla-pedido th {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  vertical-align: middle;
+  text-align: center;
 }

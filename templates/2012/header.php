@@ -22,10 +22,10 @@
 	<div id="login" class="span4 well well-small pull-right borde">
 		<p><small>Bienvenido <strong><?php echo $_SESSION['cliente']->nombre ?></strong></p>
 		<?php 
-		if(isset($_SESSION['cliente']->pedido)) {
+		if(isset($_SESSION['cliente']->articulos) and count($_SESSION['cliente']->articulos)>=1) {
 			echo '<a class="btn btn-inverse btn-small" href="'.$GLOBALS["baseURL"].'pedidos">Pedidos</a>'; 
 		} else {
-			echo '<a class="btn btn-inverse btn-small disabled" href="#">Pedidos</a>';
+			echo '<a class="btn btn-inverse btn-small disabled" id="boton-pedidos" href="'.$GLOBALS["baseURL"].'pedidos">Pedidos</a>';
 		}?>
 		<a class="btn btn-inverse btn-small"href="crud.php?close_session" id="cerrar_session">Cerrar Sesion</a></small></p>
 	</div>

@@ -61,6 +61,7 @@
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>		
 		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
+		<view read='true' edit='true' delete='true' add='true'>procesar-pedidos</view>
 	</role>
 	
 	<role name="vendedor">

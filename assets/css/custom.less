@@ -24,7 +24,7 @@
 		background-image: -moz-linear-gradient(bottom, rgb(14,119,16) 0%, rgb(121,191,56) 69%);
 		background-image: -webkit-linear-gradient(bottom, rgb(14,119,16) 0%, rgb(121,191,56) 69%);
 		background-image: -ms-linear-gradient(bottom, rgb(14,119,16) 0%, rgb(121,191,56) 69%);
-
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e7710', endColorstr='#79bf38',GradientType=0 ); /* IE6-8 */
 		background-image: -webkit-gradient(
 								linear,
 								left bottom,
@@ -39,7 +39,7 @@
 			background-image: -moz-linear-gradient(bottom, rgb(63,168,59) 0%, rgb(14,119,16) 69%);
 			background-image: -webkit-linear-gradient(bottom, rgb(63,168,59) 0%, rgb(14,119,16) 69%);
 			background-image: -ms-linear-gradient(bottom, rgb(63,168,59) 0%, rgb(14,119,16) 69%);
-
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3fa83b', endColorstr='#0e7710',GradientType=0 ); /* IE6-8 */
 			background-image: -webkit-gradient(
 				linear,
 				left bottom,
@@ -54,7 +54,7 @@
 			background-image: -moz-linear-gradient(bottom, rgb(4,102,159) 2%, rgb(0,58,106) 69%);
 			background-image: -webkit-linear-gradient(bottom, rgb(4,102,159) 2%, rgb(0,58,106) 69%);
 			background-image: -ms-linear-gradient(bottom, rgb(4,102,159) 2%, rgb(0,58,106) 69%);
-
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#04669f', endColorstr='#003a6a',GradientType=0 ); /* IE6-8 */
 			background-image: -webkit-gradient(
 				linear,
 				left bottom,
@@ -84,7 +84,8 @@
 			background-image: -moz-linear-gradient(bottom, rgb(0,73,125) 2%, rgb(3,168,218) 69%);
 			background-image: -webkit-linear-gradient(bottom, rgb(0,73,125) 2%, rgb(3,168,218) 69%);
 			background-image: -ms-linear-gradient(bottom, rgb(0,73,125) 2%, rgb(3,168,218) 69%);
-
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03a8da', endColorstr='#00497d',GradientType=0 ); /* IE6-8 */
+			
 			background-image: -webkit-gradient(
 				linear,
 				left bottom,
@@ -293,7 +294,8 @@ footer {
     font-weight: 400;
     margin-top: 30px;
     padding-top: 15px;
-    background-image: url('../img/fondo_footer.png');
+    //background-image: url('../img/fondo_footer.png');
+    background: black;
     margin-bottom: 0;
     color: #BFC5C8;
     min-height: 150px;
@@ -332,3 +334,29 @@ div .articulos {
     -webkit-box-shadow: 3px 3px 5px #888;
 	box-shadow: 3px 3px 5px #888;
 }
+
+//Tabla Pedidos
+
+#tabla-pedido {
+  border: 1px #ababab solid;
+  tbody td{
+    vertical-align: middle;
+  }
+  thead tr{
+    margin: 0px 0px;
+    color: #FFFFFF;
+    background-color: #363636;
+  }
+  tfoot td {
+    text-align: right;
+  }
+  th {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+

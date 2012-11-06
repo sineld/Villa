@@ -10,12 +10,11 @@
 	<view name="catalogo2012" url="catalogo.php" class="ArticuloDelegate" template="2012"/>
 	<view name="agregararticulos" url="articulos-agregar.php" class="ArticuloDelegate" template="admin" styles="administracion.css"  />
 	<view name="listararticulos" url="articulos-listar.php" class="ArticuloDelegate" template="admin" styles="administracion.css"/>
-	
 	<view name="mobile" url="mobile.php" class="ArticuloDelegate" template="mobile" styles="mobile.css"/>	
-	
 	<view name="listarpedidos" url="pedidos-agregar.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
 	<view name="revisarpedidos" url="listar-articulos-pedido.php" class="PedidosDelegate" template="admin" styles="administracion.css"/>
 	<view name="pedidos" url="cliente-pedidos.php" class="PedidosDelegate" template="2012"/>
+	<view name="procesar-pedidos" url="procesar-pedidos.php" class="PedidosDelegate" template="2012"/>
 	<view name="modificararticulos" url="articulos-modificar.php" class="ArticuloDelegate" template="admin" styles="administracion.css" >
 		<getter destination="entity">getCategoriasArray</getter>
 	</view>

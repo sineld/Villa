@@ -12,11 +12,21 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css' />
   		<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css' />
 		<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"];?>assets/js/bootstrap.js"></script>
-		<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"];?>assets/js/custom.js"></script>
-		<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"];?>js/paginador.js"></script>
+		<?php
+			if($_REQUEST['view']=='catalogo2012') {
+		?>
+		<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"];?>assets/js/catalogo.js"></script>
+		<?php
+			} if($_REQUEST['view']=='pedidos') {
+		?>
+		<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"];?>assets/js/pedidos.js"></script>
+		<?php
+			}
+		?>
 	</head>
 	
 	<body>
+		
 		<?php
 			require_once ($root . 'header.php');
 		?>
@@ -27,13 +37,16 @@
 		<!-- start nav -->
 		<?php
 			require_once ($root . 'nav.php');
+			
 		?>
 		<!-- end nav -->
 		<!-- start content -->
 
 		
 		<?php
+		
 			require_once ($view);
+		
 		?>
 		</div>
 
@@ -43,6 +56,5 @@
 			require_once ($root . 'footer.php');
 		?>
 		<!-- end footer -->
-
 	</body>
 </html>

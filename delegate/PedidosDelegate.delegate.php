@@ -1,7 +1,12 @@
 <?php
 require_once 'phputils/mysqlConexion.php';
 class PedidosDelegate {
-	
+	public function eliminarArtSesion($validator){
+		unset($_SESSION['cliente']->articulos[$validator->getVar('id')]);
+	}
+	public function modArtSesion($validator){
+		$_SESSION['cliente']->articulos[$validator->getVar('id')] = $validator->getVar('cantidad'); 
+	}
 	public function listarPedido($validator){
 		$cliente = (int)$validator->getOptionalVar('id_cliente');
 		$q = Doctrine_Query::create() -> select('*') -> from('pedidos');
@@ -38,83 +43,7 @@ class PedidosDelegate {
 		$eliminar = new Pedidos;
 		echo var_dump($argumentos);
 		return $eliminar->modArticulos($argumentos);
-	}
-	
-	//Funcion para renderizar cada articulo de la lista de articulos en cada pedido, 
-	//la salida es el codigo, descripcion, imagen, precio y cantidad.
-	
-	public function renderArticulos($validator){
-		$id = (int)$validator->getVar('id_articulo');
-		$pedido = (int)$validator->getVar('id_pedido');
-		//Obtengo informacion de la tabla articulos
-		$qArticulo = Doctrine::getTable('articulos')->findOneById($id);
-		//Obtengo informacion de la tabla fotos_art
-		$qFotosArt = Doctrine_Query::create()
-				-> select('*')
-				-> from('fotosArt')
-				-> where('id_art = ?',$id)
-				//-> andWhere('prioridad = 1')
-				-> andWhere('inactivo = 0');
-		$fotosArt = $qFotosArt -> execute() -> toArray();
-		//Obtengo informacion de la tabla fotos
-		$qFotos = Doctrine_Query::create()
-				-> select('*')
-				-> from('fotos')
-				-> where('id = ?',$fotosArt[0]['id_foto'])
-				-> andWhere('inactivo = 0');
-		$fotos = $qFotos -> execute() -> toArray();
-		//Obtengo informacion de la tabla Pedido
-		$qPedido = Doctrine_Query::create()
-				-> select('*')
-				-> from('pedidos')
-				-> where('id = ?',$pedido)
-				-> andWhere('inactivo = 0');
-		$pedido = $qPedido -> execute() -> toArray();
-		//Obtengo informacion de la tabla cliente
-		$qCliente = Doctrine_Query::create()
-				-> select('*')
-				-> from('cliente')
-				-> where('id = ?',$pedido[0]['id_cliente'])
-				-> andWhere('inactivo = 0');
-		$cliente = $qCliente -> execute() -> toArray();
-		//Obtengo informacion de la tabla precio_art
-		$qPrecioArt = Doctrine_Query::create()
-				-> select('*')
-				-> from('precioArt')
-				-> where('id_art = ?',$id)
-				-> andWhere('id_tipo_cliente = ?',$cliente[0]['id_tipo'])
-				-> andWhere('inactivo = 0');
-		$precioArt = $qPrecioArt -> execute() -> toArray();
-		//Obtengo informacion de la tabla precio
-		$qPrecio = Doctrine_Query::create()
-				-> select('*')
-				-> from('precios')
-				-> where('id = ?',$precioArt[0]['id_precio'])
-				-> andWhere('inactivo = 0');
-		$precio = $qPrecio -> execute() -> toArray();
-		//Obtengo informacion de la tabla articulos_pedido
-		$qArticulosPedido = Doctrine_Query::create()
-				-> select('*')
-				-> from('ArticulosPedido')
-				-> where('id_pedido = ?',$pedido[0]['id'])
-				-> andWhere('id_articulo = ?', $id)
-				-> andWhere('inactivo = 0');
-		$articulosPedido = $qArticulosPedido -> execute() -> toArray();
-		
-		$salida = array(
-			"codigo" => $qArticulo->codigo,
-			"nombre" => $qArticulo->nombre,
-			"foto" => $fotos[0]['direccion'].'thumbs/'.$fotos[0]['descripcion'].'.jpg',
-			"precio" => $precio[0]['precio'],
-			"cantidad" => $articulosPedido[0]['cantidad'],
-			"id_articulo" => $articulosPedido[0]['id'],
-		);
-		if (count($salida) >= 1) {
-			echo json_encode($salida);
-		} else {
-			echo "[]";
-		}
-	}
+	}	
  	//Funcion para modificar items en pedido y/o inactivar/activar.
 	public function modItemPedido($validator){
 		$id = $validator->getVar('key_articulo');
@@ -178,6 +107,7 @@ class PedidosDelegate {
 	 	echo '[]';
 	 }
    }
+   
 	
 	
 	

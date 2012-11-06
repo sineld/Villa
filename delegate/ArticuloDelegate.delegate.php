@@ -113,7 +113,7 @@ class ArticuloDelegate {
 		$categoria_handler= new categorias_handler();
 		$tipo_handler = new tipos_handler;
 		$id_art = $validator->getVar('id');
-		$id_tipo_cliente = $validator->getVar('id_tipo_cliente');
+		$id_tipo_cliente = $validator->getOptionalVar('id_tipo_cliente');
 		$art = json_decode($art_handler->getArticulos($id_art,null,null,null,null,null,null,null,null,null,null,0));
 		if ($id_tipo_cliente != null){
 				$id_precios_art = json_decode($precio_art_handler->getprecio_art(null,$id_art,null,$id_tipo_cliente,0));

@@ -11,6 +11,42 @@
  */
 class Pedidos extends BasePedidos
 {
+	
+	
+	public function procPedSesion(){
+		$pedido = new Pedidos;
+   		$cliente = $pedido->infoCliente($_SESSION['cliente']->id);
+	   	$parametros = array(
+				'forma_pago' => 0,
+				'tipo_pago' => $cliente['credito'],
+				'id_cliente' => $cliente['id'],
+				'inactivo' => 0,
+		);
+   		if(!isset($_SESSION['cliente']->articulos)){
+			return 'no hay articulos para crear pedido';
+		}
+		if(isset($_SESSION['cliente']->pedido)){
+			return 'pedido ya existente';
+		}
+   		if(isset($_SESSION['cliente']->articulos) and !isset($_SESSION['cliente']->pedido)){
+   			$datos = $_SESSION['cliente']->articulos;
+			$_SESSION['cliente']->pedido = $pedido->newPedido($parametros);			
+			if(count($datos)>=1){
+				foreach($datos as $key => $value){
+					$articulos = new ArticulosPedido;
+					$articulos->id_articulo = $key;
+					$articulos->cantidad = $value;
+					$articulos->inactivo = 0;
+					$articulos->id_pedido = $_SESSION['cliente']->pedido;
+					$articulos->save();
+					unset($articulos);
+				}
+				$_SESSION['cliente']->status = 'procesado';
+				return 'void';
+			}
+   		}
+		
+   }
 	//Funcion para introducir un item nuevo al pedido, el argumento q admite es un array con los siguientes campos
 	//id_articulo, id_pedido, cantidad, inactivo.
 	public function newItemPedido($data){

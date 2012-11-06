@@ -1,109 +1,70 @@
- jQuery.fn.log = function (msg) {
-      console.log("%s: %o", msg, this)
-      return this
-  }
-  
-$(document).on('click','.boton-eliminar',function(){
-	_DOMObject = $(this);
-	$.when(deleteItemSesion($(this).attr('attr'))).done(function(){
-		_DOMObject.parent().parent().remove();	
-	});
-});
-$(document).on('click','.disabled',function(event){
-	event.preventDefault;
-});
-$(document).on('change','input[id^="cantidad-"]',function(event){
-	event.preventDefault;
-	$.when(modItemSesion($(this).attr('attr'),$(this).val())).done(function(){
-		alert('cambio correctamente');
-	});
-});
-
-
-function modItemSesion(id_art,cant){
-	return $.ajax({
-			type : "POST",
-			url : "crud.php",
-			dataType : "json",
-			data : {
-				view : 'pedidos',
-				action : 'modArtSesion',
-				id : id_art,
-				cantidad : cant,
-			}
-	});
-}
- 
-$(document).ready(function() {	
-		//Metodo para captar los clicks en los botones de añadir item al pedido.
-		$(document).on('click','.enviar-item',function(event){
-			event.preventDefault();
-			
-			$.when(procesarItem(1,$(this).attr('attr'))).then(function(data){
-				if($('#boton-pedidos').hasClass('disabled')){
-					$('#boton-pedidos').removeClass('disabled');
+var container = $('div#error_container');
+$.validator.addMethod('caracteres', function (value) {
+	return /^([a-zA-Z0-9]*)$/.test(value);
+}, 'La contrase&ntilde;a que introdujo no es v&aacute;lida');
+$(document).on('click','#csubmit',function(){
+	$("#cloginForm").validate({
+		errorContainer: container,
+		errorLabelContainer: $("ol", container),
+		wrapper: 'li',
+		meta: "validate",
+		rules: {
+			user : {
+				required : true,
+				email : true
+				},
+				password : {
+					required : true,
+					minlength: 5,
+					maxlength: 15,
+					caracteres : true
 				}
+			},
+		messages : {
+			user : "Por favor introduzca su Email",
+			password : "Por favor introduzca su Contraseña (solo letras y n&uacute;meros entre 5 y 15 caracteres)"
+		},
+		submitHandler: function(form) {
+			jQuery(form).ajaxSubmit({
+				beforeSubmit: function(formData, jqForm, options){
+					var pass = $("#cpassword").val();
+					formData[formData.length] = { "name": "password", "value": $.sha1(pass) };
+					return true;
+				},
+				target: "#error_container"
 			});
-		});
-		
-		//Funciones usadas para validar la data ingresada al formulario de login
-		var container = $('div#error_container');
-		$.validator.addMethod('caracteres', function (value) { 
-    		return /^([a-zA-Z0-9]*)$/.test(value);
-			}, 'La contrase&ntilde;a que introdujo no es v&aacute;lida');
-	
-		$(document).on('click','#csubmit',function(){
-			$("#cloginForm").validate({
-				errorContainer: container,
-				errorLabelContainer: $("ol", container),
-				wrapper: 'li',
-				meta: "validate",
-				rules: {
-					user : {
-						required : true,
-						email : true
-					},
-					password : {
-						required : true,
-						minlength: 5,
-						maxlength: 15,
-						caracteres : true
-					}
-				},
-				messages : {
-					user : "Por favor introduzca su Email",
-					password : "Por favor introduzca su Contraseña (solo letras y n&uacute;meros entre 5 y 15 caracteres)"
-				},
-				submitHandler: function(form) {
-					jQuery(form).ajaxSubmit({
-							beforeSubmit: function(formData, jqForm, options){
-								var pass = $("#cpassword").val();
-								formData[formData.length] = { "name": "password", "value": $.sha1(pass) };
-								return true;
-							},
-							target: ".login_error"
-						});
-				}	
-			});	
-		});
-		//FIN DE FUNCIONES PARA LOGIN
-		
-		
-		$('.mini').live("click",function(event){
+		}	
+	});	
+});
+
+$(document).on('click','.enviar-item',function(event){
+	event.preventDefault()
+	$.when(procesarItem(1,$(this).attr('attr'))).then(function(data){
+		if($('#boton-pedidos').hasClass('disabled')){
+			$('#boton-pedidos').removeClass('disabled')
+		}
+	})
+})
+
+$(document).on('click','.link_articulo',function(event){
+		event.preventDefault()
+   		var id = $(this).attr("id")
+   		getArticuloSolo(id,id_tipo_cliente)
+  		$("#display_articulo_completo").modal('toggle')
+})
+
+$(document).on('click','[data-dismiss="modal"]',function(event){
+		event.preventDefault()
+		$("#display_articulo_completo").modal('toggle')
+})
+
+
+$(document).ready(function(){
+	$('.mini').live("click",function(event){
 			event.preventDefault();
 			$('.big').attr('src',$(this).attr('src'));
 		});
 		$("#display_articulo_completo").hide();
-   		$('.link_articulo').live("click",function(event){
-   			event.preventDefault;
-   			var id = $(this).attr("id");
-   			getArticuloSolo(id,id_tipo_cliente);
-   			$("#display_articulo_completo").modal('toggle');
-   		});
-   		$('[data-dismiss="modal"]').live("click",function(event){
-   			event.preventDefault;
-   			$("#display_articulo_completo").modal('toggle');
-   		});
    		if(tipo!='undefined'){
    			$('.nav-list li[tipo-id="'+tipo+'"] ').addClass("active");
    			if(cat!='undefined'){
@@ -122,30 +83,13 @@ $(document).ready(function() {
 			}
 		}
 	});
-
-
-function deleteItemSesion(id_art){
-	return $.ajax({
-			type : "POST",
-			url : "crud.php",
-			dataType : "json",
-			data : {
-				view : 'pedidos',
-				action : 'eliminarArtSesion',
-				id : id_art,
-			}
-	});
-}
-  
-	
-
 	function getPaginationArt(cat,tipo){
 		$.ajax({
 			type : "POST",
 			url : "crud.php",
 			dataType : "json",
 			data : {
-				view : 'catalogo',
+				view : 'catalogo2012',
 				action : 'getPaginationArt',
 				categoria : cat,
 				tipo : tipo,
@@ -164,7 +108,7 @@ function deleteItemSesion(id_art){
 			url : "crud.php",
 			dataType : "json",
 			data : {
-				view : 'catalogo',
+				view : 'catalogo2012',
 				action : 'getArticulosCompleto',
 				id : id,
 				id_tipo_cliente : itc
@@ -231,16 +175,13 @@ function deleteItemSesion(id_art){
 			}
 		});
 	}
-
-	
-	//Funcion para enviar por AJAX los items que el cliente quiere al pedido abierto.
 	function procesarItem(cant,id_art){
 		return $.ajax({
 		type : "POST",
 		url : "crud.php",
 		dataType : 'html',
 		data : {
-			view: 'catalogo',
+			view: 'catalogo2012',
 			action: 'añadirArticuloSesion',
 			cantidad : cant,
 			id_articulo : id_art,
@@ -250,15 +191,13 @@ function deleteItemSesion(id_art){
 			}
 		});
 	}
-	
-	
 	function getArticulos(pag, cat, tipo, itc) {
 		$.ajax({
 			type : "POST",
 			url : "crud.php",
 			dataType : "json",
 			data : {
-				view : 'catalogo',
+				view : 'catalogo2012',
 				action : 'getArticulosCorto',
 				pagina : pag,
 				categoria : cat,
@@ -307,10 +246,7 @@ function deleteItemSesion(id_art){
 		content += '</div></div>';
 		return content;
 	}
-	
-  
-//*****FUNCiONES DEL PAGINADOR EN LA VISTA DE CATALOGO**********************//
-function llenarpaginador(ultima_pag,primera_pag,pags_show,total,selector,pagina_actual){
+	function llenarpaginador(ultima_pag,primera_pag,pags_show,total,selector,pagina_actual){
 	$(selector).html("")
 	$(selector).append("<ul></ul>")
 	var html = ""
@@ -354,7 +290,6 @@ function llenarpaginador(ultima_pag,primera_pag,pags_show,total,selector,pagina_
 function paginador(primera_pagina,ultima_pagina,pags_show,total,selector,callback){
 	$(selector+" ul li").on("click",function(event){
 		event.preventDefault
-		$(this).log()
 		var _activa = $(selector+" ul li.active")
 		_next = $(selector+" ul li.next")
 		_prev = $(selector+" ul li.prev")
@@ -500,3 +435,4 @@ function paginador(primera_pagina,ultima_pagina,pags_show,total,selector,callbac
 	})
 }
 //*****FIN FUNCIONES DEL PAGINADOR EN LA VISTA DE CATALOGO**********************//
+
