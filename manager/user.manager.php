@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////////
 include_once('phputils/CocoasCliente.class.php');
 include_once('phputils/CocoasVendedor.class.php');
+include_once('phputils/CocoasEmpleado.class.php');
 class UserManager
 {
 	var $validator;
@@ -52,7 +53,7 @@ class UserManager
 				$mysqldate = date('Y-m-d h:i:s',$today);
 				$log->fecha = $mysqldate;
 				$ip=$_SERVER['REMOTE_ADDR'];
-				$log->IP = $ip;
+				$log->ip = $ip;
 				$log->save();
 					
 				
@@ -110,6 +111,32 @@ class UserManager
 						$vendedor->inactivo = $auxVendedor->inactivo;
 						$_SESSION['vendedor'] = $vendedor;						
 					}
+				}else if ($user->roleName == 'empleado'){
+					try
+					{
+						$this->connection = Doctrine_Manager::connection();
+						$q = Doctrine_Query::create()
+							->from('empleado e')
+							->where("e.id_user='".$user->id."'");
+						$rows = $q->execute();
+						$cuenta = count($rows);
+					}
+					catch(Exception $e)
+					{
+						if($GLOBALS["debugMode"]) $this->validator->errors->addError(ErrorManager::CANIS_FATAL,$e->getMessage());
+					}
+					if($cuenta == 1)
+					{
+						$auxEmpleado = $rows[0];
+						$empleado = new CocoasEmpleado();
+						$empleado->id = $auxEmpleado->id;
+						$empleado->id_tipo = $auxEmpleado->id_tipo;
+						$empleado->id_user = $auxEmpleado->id_user;
+						$empleado->rif = $auxEmpleado->rif;
+						$empleado->nombre = $auxEmpleado->nombre;
+						$empleado->inactivo = $auxEmpleado->inactivo;
+						$_SESSION['empleado'] = $empleado;						
+					}
 				}
 			}
 		}
@@ -151,7 +178,7 @@ class UserManager
 		$mysqldate = date('Y-m-d h:i:s',$today);
 		$log->fecha = $mysqldate;
 		$ip=$_SERVER['REMOTE_ADDR'];
-		$log->IP = $ip;
+		$log->ip = $ip;
 		$log->save();
 		
 		session_destroy();

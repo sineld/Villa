@@ -11,140 +11,123 @@
  */
 class Pedidos extends BasePedidos
 {
-	
-	
-	public function procPedSesion(){
+	//$parametro recibe el id del cliente al cual se le añadirá el pedido y los dias de credito.
+	public function procPedSesion($metodo_pago=null){
 		$pedido = new Pedidos;
-   		$cliente = $pedido->infoCliente($_SESSION['cliente']->id);
-	   	$parametros = array(
-				'forma_pago' => 0,
-				'tipo_pago' => $cliente['credito'],
-				'id_cliente' => $cliente['id'],
-				'inactivo' => 0,
-		);
-   		if(!isset($_SESSION['cliente']->articulos)){
-			return 'no hay articulos para crear pedido';
-		}
-		if(isset($_SESSION['cliente']->pedido)){
-			return 'pedido ya existente';
-		}
-   		if(isset($_SESSION['cliente']->articulos) and !isset($_SESSION['cliente']->pedido)){
-   			$datos = $_SESSION['cliente']->articulos;
-			$_SESSION['cliente']->pedido = $pedido->newPedido($parametros);			
-			if(count($datos)>=1){
-				foreach($datos as $key => $value){
-					$articulos = new ArticulosPedido;
-					$articulos->id_articulo = $key;
-					$articulos->cantidad = $value;
-					$articulos->inactivo = 0;
-					$articulos->id_pedido = $_SESSION['cliente']->pedido;
-					$articulos->save();
-					unset($articulos);
-				}
-				$_SESSION['cliente']->status = 'procesado';
-				return 'void';
-			}
-   		}
-		
-   }
-	//Funcion para introducir un item nuevo al pedido, el argumento q admite es un array con los siguientes campos
-	//id_articulo, id_pedido, cantidad, inactivo.
-	public function newItemPedido($data){
-		//se verifica que exista un pedido activo
-		if (isset($data['id_pedido']))
-		{
-			//Se verifica que todos los datos de los argumentos de la funcion sean numericos.
-			foreach($data as $valor => $_dato)
-			{
-				if (!is_numeric($_dato))
-				{
-					return 'error: un campo del array no es numerico. '.$valor.' = '.$_dato;
-				}
-			}
-			
-			//se define un query para verificar que el articulo ingresado no este repetido en el pedido.
-			$query = Doctrine_Query::create()
-						-> select('*')
-						-> from('articulospedido')
-						-> where('id_articulo = ?',$data['id_articulo'])
-						-> andWhere('id_pedido = ?',$data['id_pedido']);
-			$verificador = $query->execute()->toArray();
-			
-			
-			//se verifica que el array de respuesta no tenga objetos y crea un item nuevo, o si tiene objetos, busca el id
-			// que corresponde y realiza la suma de cantidades.
-			if(count($verificador)==0)
-			{
-				$newItem = new ArticulosPedido();
-				$newItem->id_articulo = (int)$data['id_articulo'];
-				$newItem->cantidad = (int)$data['cantidad'];
-				$newItem->id_pedido = (int)$data['id_pedido'];
-				$newItem->inactivo = (int)$data['inactivo'];
-				echo 'item nuevo';
-			}
-			else
-			{
-				$newItem = Doctrine::getTable('articulosPedido')->findOnebyId($verificador[0]['id']);
-				$newItem->cantidad = (int)$newItem->cantidad + (int)$data['cantidad'];  
-				echo 'item repetido';
-			}
-		} 
-		else //si no existe ningun pedido definido, retorna error.
-		{
-			 return 'error: no hay pedido definido.';
-		}
-		
 		try {
-			$newItem->save();
-	   		return $newItem->id;			
-		} catch (Exception $e){
+			if(isset($_SESSION['cliente'])){
+				$sujeto = $_SESSION['cliente'];
+			}
+			if(isset($_SESSION['vendedor'])){
+				$sujeto = $_SESSION['vendedor'];
+				$sujeto->id = $sujeto->cliente;
+			}
+			$cliente = $pedido->infoCliente($sujeto->id);
+			if($metodo_pago==null or $metodo_pago=='null'){
+				$metodo_pago = 0;
+			}
+			$parametros = array(
+				'forma_pago' => (int)$metodo_pago,
+				'tipo_pago' => (int)$cliente['credito'],
+				'id_cliente' => (int)$cliente['id'],
+				'inactivo' => (int)$cliente['inactivo'],
+			);
+   			if(!isset($sujeto->articulos)){
+				return 'no hay articulos para crear pedido';
+			}
+			if(isset($sujeto->pedido)){
+				return 'pedido ya existente';
+			}
+   			if(isset($sujeto->articulos) and !isset($sujeto->pedido)){
+	   			$datos = $sujeto->articulos;
+				$sujeto->pedido = $pedido->newPedido($cliente);
+				if(count($datos)>=1){
+					foreach($datos as $key => $value){
+						$qArticulo = Doctrine::getTable('articulos')->findOneById($key);
+						$articulos = new ArticulosPedido;
+						$articulos->id_articulo = (int)$key;
+						$articulos->cantidad = (int)$value;
+						$articulos->descripcion = $qArticulo->nombre;
+						$articulos->codigo = $qArticulo->codigo;
+						$articulos->id_pedido = (int)$sujeto->pedido;
+						$articulos->inactivo = 0;
+						$temp = Doctrine_Query::create()
+								-> select('*')
+								-> from('precioArt')
+								-> where('id_art = ?',(int)$key)
+								-> andWhere('id_tipo_cliente = ?',$sujeto->id_tipo)
+								-> andWhere('inactivo = 0');
+						$temp = $temp -> execute() -> toArray();
+						$qPrecio = Doctrine_Query::create()
+								-> select('*')
+								-> from('precios')
+								-> where('id = ?',$temp[0]['id_precio'])
+								-> andWhere('inactivo = 0');
+						$qPrecio = $qPrecio-> execute() -> toArray();
+						$articulos->precio = (float)$qPrecio[0]['precio'];
+						$temp = Doctrine_Query::create()
+								-> select('*')
+								-> from('fotosArt')
+								-> where('id_art = ?',(int)$key)
+								-> andWhere('inactivo = 0');
+						$temp = $temp->execute()->toArray();
+						$qFoto = Doctrine::getTable('fotos')->findOnebyId($temp[0]['id_foto']);
+						$articulos->foto = $qFoto->direccion.'thumbs/'.$qFoto->descripcion.'.jpg';
+						$articulos->save();
+						unset($articulos);
+					}
+					$sujeto->status = 'procesado';
+					return 'TRUE';
+				}
+   			}
+   		}
+		catch (Exception $e){
 			return 'Message: ' .$e->getMessage();
 		}
-	}
-	
+		
+   }
+
 	
 	//Funcion para procesar el ingreso de items a un pedido.
 	
 	public function newPedido($data)
 	{
-		foreach($data as $verificar)
-		{
-			if(!is_numeric($verificar)) return 'error, dato no numerico.';
-		}
-		$id_cliente = $data['id_cliente']; //ID del cliente que realiza el pedido.
 		$newPedido = new Pedidos;
-		$mysqldate = date('Y-m-d');
+		$today = time() - 18720; 
+		$mysqldate = date('Y-m-d h:i:s',$today);
 		try 
 		{
 			$newPedido->fecha_creacion = $mysqldate;
 			$newPedido->fecha_ult_mod = $mysqldate;
 		//Si el tipo de pago es superior o igual a 0 dias, lo procesa, sino usa el default 0.
-			if ($tipo_pago >= 0) 
+			if (isset($data['credito']) and ($data['credito'] >= 0))
 			{
-				$newPedido->tipo_pago = (int)$data['tipo_pago'];	
-			} else 
+				$newPedido->tipo_pago = (int)$data['credito'];
+			}else
 			{
-				$newPedido->tipo_pago = 0;
+				return 'Campo credito invalido';
 			}
 		//Si el id de cliente no existe, retorna error, sino lo procesa.
-			if (($id_cliente == null) || ($id_cliente == 'undefined'))
+			if (isset($data['id']) and ($data['id'] >= 0))
+			{
+				$newPedido->id_cliente = (int)$data['id'];
+			}else
+			{
+				return 'Campo id_cliente invalido';
+			}
+			/*if (($data['id'] == null) or ($data['id'] == 'undefined'))
 			{
 				return 'cliente invalido';
 			}else
 			{
-				$newPedido->id_cliente = (int)$id_cliente;	
-			}
-		//Si la forma de pago no existe, usa el default, 0 = efectivo, 1 = cheque, 2 = transferencia. 
-			if ($forma_pago >= 0)
-			{
-				$newPedido->forma_pago = (int)$data['forma_pago'];
-			}else
-			{
-				$newPedido->forma_pago = 0;
-			}
+				$newPedido->id_cliente = (int)$data['id'];	
+			}*/
+		//Si la forma de pago no existe, usa el default, 0 = efectivo, 1 = cheque, 2 = transferencia.
+			$newPedido->forma_pago = 0; 
 			$newPedido->inactivo = (int)$data['inactivo'];
 			$newPedido->estado = 0;
-		
+			$newPedido->fact_nro = 0;
+			$newPedido->monto = 0;
 			$newPedido->save();
 			return $newPedido->id;
 		}
@@ -200,7 +183,8 @@ class Pedidos extends BasePedidos
 	//valor = valor a ingresar para sustituir en la base de datos.
 	public function modPedidos($data){
 		$pedido = Doctrine::getTable('pedidos')->findOnebyId($data['id_pedido']);
-		$mysqldate = date('Y-m-d');
+		$today = time() - 18720; 
+		$mysqldate = date('Y-m-d h:i:s',$today);
 		switch($data['campo'])
 		{
 			case 'estado':

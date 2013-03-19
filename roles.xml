@@ -5,20 +5,35 @@
 		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
 		<view read='true' edit='true' delete='true' add='true'>articulo</view>
-		<!--<view read='true' edit='true' delete='true' add='true'>signup</view>-->
 		<view read='true' edit='true' delete='true' add='true'>login</view>
 		<view read='true' edit='true' delete='true' add='true'>forgot</view>		
 		<view read='true' edit='true' delete='true' add='true'>forgot2</view>
 		<view read='true' edit='true' delete='true' add='true'>mobile</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
+		<view read='true' edit='true' delete='true' add='true'>signup</view>
 	</role>
 	
-	<role name='admin' >
+	<role name='empleado' >
 		<view read='true' edit='true' delete='true' add='true'>inicio</view>
 		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
 		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<view read='true' edit='true' delete='true' add='true'>login</view>
+		<view read='true' edit='true' delete='true' add='true'>forgot</view>		
+		<view read='true' edit='true' delete='true' add='true'>forgot2</view>
+		<view read='true' edit='true' delete='true' add='true'>mobile</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
+		<view read='true' edit='true' delete='true' add='true'>signup</view>
+	</role>
+	
+	<role name='admin' >
+		<!--<view read='true' edit='true' delete='true' add='true'>inicio</view>PARA ELIMINAR-->
+		<view read='true' edit='true' delete='true' add='true'>mapasite</view>
+		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
+		<view read='true' edit='true' delete='true' add='true'>articulo</view>
+		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
 		<view read='true' edit='true' delete='true' add='true'>home</view>
 		<view read='true' edit='true' delete='true' add='true'>administracion</view>
 		<view read='true' edit='true' delete='true' add='true'>private</view>
@@ -28,8 +43,6 @@
 		<view read='true' edit='true' delete='true' add='true'>agregararticulos</view>
 		<view read='true' edit='true' delete='true' add='true'>modificararticulos</view>
 		<view read='true' edit='true' delete='true' add='true'>listararticulos</view>
-		<view read='true' edit='true' delete='true' add='true'>catalogo</view>
-		<view read='true' edit='true' delete='true' add='true'>articulo</view>
 		<view read='true' edit='true' delete='true' add='true'>agregarfotos</view>
 		<view read='true' edit='true' delete='true' add='true'>listarfotos</view>
 		<view read='true' edit='true' delete='true' add='true'>editarfotos</view>
@@ -47,7 +60,8 @@
 		<view read='true' edit='true' delete='true' add='true'>validate</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>	
 		<view read='true' edit='true' delete='true' add='true'>listarusuarios</view>
-		<view read='true' edit='true' delete='true' add='true'>listarpedidos</view>
+		<view read='true' edit='true' delete='true' add='true'>listar-pedidos</view>
+		<view read='true' edit='true' delete='true' add='true'>detalle-pedidos</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 	</role>
 	
@@ -61,6 +75,7 @@
 		<view read='true' edit='true' delete='true' add='true'>catalogo2</view>		
 		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
 		<view read='true' edit='true' delete='true' add='true'>pedidos</view>
+		<view read='true' edit='true' delete='true' add='true'>vendedor-pedidos</view>
 		<view read='true' edit='true' delete='true' add='true'>procesar-pedidos</view>
 	</role>
 	
@@ -72,5 +87,6 @@
 		<view read='true' edit='true' delete='true' add='true'>change-password</view>
 		<view read='true' edit='true' delete='true' add='true'>private</view>
 		<view read='true' edit='true' delete='true' add='true'>catalogo2012</view>
+		<view read='true' edit='true' delete='true' add='true'>vendedor-pedidos</view>
 	</role>
 </roles>

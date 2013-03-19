@@ -2,15 +2,6 @@
 <meta name="keywords" content="<?php echo $GLOBALS["keywords"]; ?>" >
 <meta name="Language" content="<?php echo $GLOBALS["language"]; ?>" >
 <script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>assets/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/jquery.livequery.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/form.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/sha1.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/jquery-validate/jquery.validate.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/validations.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/jquery.bestupper.min.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/canis.js"></script>
-<script type="text/javascript" src="<?php echo $GLOBALS["baseURL"]; ?>js/jquery.tablesorter.min.js"></script>
-
 <?php
   if(isset($_REQUEST['view'])){
           if(isset($styles[$_REQUEST['view']]))

@@ -24,6 +24,7 @@ Doctrine_Manager::getInstance()->bindComponent('Articulos', 'villadel_villa');
  * @property integer $tipo
  * @property Categorias $Categorias
  * @property Tipos $Tipos
+ * @property Doctrine_Collection $ArticulosIndex
  * @property Doctrine_Collection $FotosArt
  * @property Doctrine_Collection $PrecioArt
  * 
@@ -182,6 +183,10 @@ abstract class BaseArticulos extends Doctrine_Record
 
         $this->hasOne('Tipos', array(
              'local' => 'tipo',
+             'foreign' => 'id'));
+
+        $this->hasMany('ArticulosIndex', array(
+             'local' => 'id',
              'foreign' => 'id'));
 
         $this->hasMany('FotosArt', array(

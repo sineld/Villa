@@ -6,9 +6,9 @@
 
 /*--------THIS ARE THE MANDATORY DEFINITIONS----------*/
 
-$GLOBALS["LOGIN_VIEW"]    = "inicio";
+$GLOBALS["LOGIN_VIEW"]    = "catalogo2012";
 $GLOBALS["PRIVATE_VIEW"]  = "administracion";
-$GLOBALS["DEFAULT_VIEW"]  = "inicio";  //The logic name for the deault view that has to be showed in the start page
+$GLOBALS["DEFAULT_VIEW"]  = "catalogo2012";  //The logic name for the deault view that has to be showed in the start page
 $GLOBALS["DEFAULT_PANEL"] = "";
 $GLOBALS["title"]         = "Importadora La Villa de las Mascotas, C.A.";
 
@@ -32,7 +32,7 @@ $GLOBALS["canisSessionName"] = "usuarioVilla";
 $GLOBALS["connectionName"] = "villadel_villa";
 $GLOBALS["dbName"]     = "villadel_villa";
 $GLOBALS["dbServer"]   = "127.0.0.1";
-$GLOBALS["dbUser"]     = "villadel_villa";
+$GLOBALS["dbUser"]     = "villadel";
 $GLOBALS["dbPassword"] = "cs158964";
 $GLOBALS["doctrineConnection"] = "";
 
@@ -65,14 +65,14 @@ $GLOBALS["error_mailUserName"] = "user+domain.com";
 $GLOBALS["error_mailPasswors"] = "password";
 //$GLOBALS["error_mailAccount"]  = "cesarvilera8602@gmail.com";
 
-/*--------FRENDLY URL DEFINITIONS----------*/
+/*--------FRIENDLY URL DEFINITIONS----------*/
 
 $GLOBALS["baseCountry"] = "ahJkZXZlbG9wZXJzLXNvY2lldHNyEgsSDENhdGFsb2dWYWx1ZRgjDA";
 $GLOBALS["frendlyURL"] = true;
 //$GLOBALS["baseURL"] = "http://localhost:3002/EmpleoSTCWEB/Canis/";
 //$GLOBALS["baseURL"] = "http://pruebas.stcsolutions.com.ve/empleo/Canis/";
 
-$GLOBALS["baseURL"] = "http://www.villadelasmascotas.com/";
+$GLOBALS["baseURL"] = "http://192.168.1.117:8080/Villa/";
 
 
 

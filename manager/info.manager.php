@@ -64,7 +64,7 @@ class InfoManager
 								$newclass = new $class();
 							}
 
-							//Este arreglo contendrá todas las variables para renderizar la view
+							//Este arreglo contendrï¿½ todas las variables para renderizar la view
 							$vars = array();
 
 							if($class!='' && $metodos!='' && count($metodos)>0 && isset($newclass))
@@ -97,7 +97,7 @@ class InfoManager
 		}
 		else
 		{
-			$this->errors->addError(ErrorManager::CANIS_FATAL,'The view "'.$logicPath.'" has not been defined bindings.xml');
+			$this->errors->addError(ErrorManager::CANIS_FATAL,'La siguiente vista: "'.$logicPath.'" no ha sido definida.');
 			if($GLOBALS["debugMode"]) echo $this->errors->getErrorsString();
 		}
 
@@ -111,7 +111,7 @@ class InfoManager
 		{
 			if($permision[$logicPath]['read']!='true')
 			{
-				//si no existe, envio a la página de autentificacion
+				//si no existe, envio a la pï¿½gina de autentificacion
 				if(!$GLOBALS["debugMode"]) header("Location: controller.php?view=".$GLOBALS["LOGIN_VIEW"]);
 				else
 				{
@@ -132,7 +132,7 @@ class InfoManager
 		else
 		{
 			//print_r($permision);
-			//si no existe, envio a la página de autentificacion
+			//si no existe, envio a la pï¿½gina de autentificacion
 			if(!$GLOBALS["debugMode"]) header("Location: controller.php?view=".$GLOBALS["LOGIN_VIEW"]);
 			else
 			{

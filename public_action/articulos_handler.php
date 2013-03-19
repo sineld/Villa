@@ -6,6 +6,7 @@ require_once 'public_action/pagination_handler.php';
 class articulos_handler {
 	/**
 	 * Regresa el ID del articulo que se acaba de agregar
+	 * 
 	 */
 	public function setArticulo($nombre, $codigo, $descripcion, $alto, $ancho, $largo, $diametro, $peso, $empaque, $categoria, $tipo) {
 		require_once 'phputils/mysqlConexion.php';

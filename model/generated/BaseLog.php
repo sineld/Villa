@@ -9,13 +9,13 @@ Doctrine_Manager::getInstance()->bindComponent('Log', 'villadel_villa');
  * 
  * @property integer $id
  * @property integer $iduser
- * @property string $IP
- * @property string $MAC
+ * @property string $ip
+ * @property string $mac
  * @property integer $idlogtype
  * @property timestamp $fecha
  * @property integer $inactivo
- * @property User $User
  * @property LogType $LogType
+ * @property User $User
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -44,7 +44,7 @@ abstract class BaseLog extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
-        $this->hasColumn('IP', 'string', 25, array(
+        $this->hasColumn('ip', 'string', 25, array(
              'type' => 'string',
              'length' => 25,
              'fixed' => false,
@@ -53,7 +53,7 @@ abstract class BaseLog extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn('MAC', 'string', 25, array(
+        $this->hasColumn('mac', 'string', 25, array(
              'type' => 'string',
              'length' => 25,
              'fixed' => false,
@@ -94,12 +94,12 @@ abstract class BaseLog extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('User', array(
-             'local' => 'iduser',
-             'foreign' => 'id'));
-
         $this->hasOne('LogType', array(
              'local' => 'idlogtype',
+             'foreign' => 'id'));
+
+        $this->hasOne('User', array(
+             'local' => 'iduser',
              'foreign' => 'id'));
     }
 }

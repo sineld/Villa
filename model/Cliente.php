@@ -12,5 +12,44 @@
  */
 class Cliente extends BaseCliente
 {
-
+	public function getDataCliente($id_cliente){
+		$q = Doctrine_Query::create()
+			-> select('*')
+			-> from('cliente')
+			-> where('id = ?',$id_cliente);
+		$salida = $q->execute()->toArray();
+		return json_encode($salida);
+	}
+	
+	public function searchCliente_byID($data){
+		$data = '%'.$data.'%';
+		$query = Doctrine_Query::create()
+					-> select('*')
+					-> from('cliente')
+					-> where('id LIKE ?',$data)
+					-> limit(10);
+		$verificador = $query->execute()->toArray();
+		foreach($verificador as &$item){
+			if(($item->inactivo != 0)and($item->inactivo!=null)){
+				unset($item);
+			}
+		}
+		return $verificador;
+	}
+	
+	public function searchCliente_byNombre($data){
+		$data = '%'.$data.'%';
+		$query = Doctrine_Query::create()
+					-> select('*')
+					-> from('cliente')
+					-> where('nombre LIKE ?',$data)
+					-> limit(10);
+		$verificador = $query->execute()->toArray();
+		foreach($verificador as &$item){
+			if(($item->inactivo != 0)and($item->inactivo!=null)){
+				unset($item);
+			}
+		}
+		return $verificador;
+	}
 }

@@ -58,7 +58,7 @@ class RegistroDelegate
 			$random = rand(0,999999999);
 			$entity = new user();
 			$entity->email=$email;
-			$entity->password=$validator->getVar("password");
+			$entity->password=sha1($validator->getVar("password"));
 			$entity->validation_code=$random;
 			$entity->role_id=$validator->getVar("tipousuarios");
 			$entity->save();
@@ -77,6 +77,14 @@ class RegistroDelegate
 				$vendedor->id_usuario = $entity->id;
 				$vendedor->id_tipo = $validator->getVar("tipoclientes");
 				$vendedor->save();
+			}else if ($entity->Role->name == 'empleado'){
+				$empleado = new Empleado();
+				$empleado->nombre = $validator->getVar('nombre_empleado');
+				$empleado->id_user = $entity->id;
+				$empleado->id_tipo = $validator->getVar('tipo_empleado');
+				$empleado->rif = (int)$validator->getVar('rif_empleado');
+				$empleado->inactivo = 0;
+				$empleado->save();
 			}
 			
 		}
@@ -122,6 +130,16 @@ class RegistroDelegate
 		}*/ 
 
 		return 'controller.php?view=validate';
+	}
+
+	function getTiposEmpleados($validator){
+		$tipos = new Empleado;
+		$return = $tipos->getTipos();
+		if($return == 'error'){
+			echo 'error';
+		}else{
+			echo json_encode($return);
+		}
 	}
 	
 	function getTipoClientes($validator)

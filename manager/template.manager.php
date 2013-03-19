@@ -21,7 +21,6 @@ class TemplateManager
 
 	public function show($logicPath,$type,$vars,$permision,$styles)
 	{
-		$_CATALOGS = CatalogManager::getInstance();
 		$root = "templates/".$this->template."/";
 
 		switch($type)

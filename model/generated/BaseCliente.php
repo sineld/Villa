@@ -16,6 +16,7 @@ Doctrine_Manager::getInstance()->bindComponent('Cliente', 'villadel_villa');
  * @property integer $credito
  * @property string $telefono
  * @property integer $inactivo
+ * @property Doctrine_Collection $ClienteVendedor
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -112,6 +113,8 @@ abstract class BaseCliente extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasMany('ClienteVendedor', array(
+             'local' => 'id',
+             'foreign' => 'id_cliente'));
     }
 }

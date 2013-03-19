@@ -14,6 +14,8 @@ Doctrine_Manager::getInstance()->bindComponent('Pedidos', 'villadel_villa');
  * @property integer $forma_pago
  * @property integer $id_cliente
  * @property integer $estado
+ * @property integer $fact_nro
+ * @property integer $monto
  * @property integer $inactivo
  * 
  * @package    ##PACKAGE##
@@ -80,6 +82,24 @@ abstract class BasePedidos extends Doctrine_Record
              'autoincrement' => false,
              ));
         $this->hasColumn('estado', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('fact_nro', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('monto', 'integer', 4, array(
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,

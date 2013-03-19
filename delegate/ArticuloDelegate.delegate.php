@@ -323,6 +323,7 @@ class ArticuloDelegate {
 
 		echo json_encode($newsItems->toArray());
 	}
+	
 	public function añadirArticuloSesion($validator){
 		if(isset($_SESSION['cliente']->articulos)){
 			$match = false;
@@ -347,10 +348,24 @@ class ArticuloDelegate {
 		echo json_encode($_SESSION['cliente']->articulos);
 		return 'void';
 	}
-	public function añadirItemPedido($validator){
+	/*public function añadirItemPedido($validator){
 		try{		
 			$pedido = new Pedidos;
-			$cliente = $pedido->infoCliente($_SESSION['cliente']->id);
+			switch($_REQUEST['view']){
+				case 'vendedor-pedidos':
+					$cliente = $pedido->infoCliente($validator->getVar('cliente'));	
+					break;
+				case 'catalogo2012':
+					$cliente = $pedido->infoCliente($_SESSION['cliente']->id);
+					break;
+				default:
+					break;
+			}
+			$temp = $validator->getOptionalVar('cliente');
+			if(($temp == null) or ($temp == 'null')) {
+				$temp = $_SESSION['cliente']->id;
+			}
+			$cliente = $pedido->infoCliente($temp);
 			$parametros = array(
 				'id_articulo' => $validator->getVar('id_articulo'),
 				'cantidad' => $validator->getVar('cantidad'),
@@ -382,6 +397,6 @@ class ArticuloDelegate {
 		catch (Exception $e){
 			return 'Message: ' .$e->getMessage();
 		}
-	}
+	}*/
 }
 ?>

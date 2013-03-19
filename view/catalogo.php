@@ -1,11 +1,10 @@
-
 	<div class="span12 row">
 	<div class="span4 breacrumb">
 		<ul class="breadcrumb borde">
 			<?php 
 			require_once('public_action/categorias_handler.php');
 			require_once('public_action/tipos_handler.php');
-				echo '<li><a href="catalogo">Inicio</a><span class="divider">></span></li>';
+				echo '<li><a href="catalogo2012">Inicio</a><span class="divider">></span></li>';
 				if (isset($_GET['categoria'])) {
 					$id_cat = $_GET['categoria']; 
 					$cat_handler = new categorias_handler;
@@ -50,21 +49,25 @@
 	</div>
 	<div class="span8 recuadro_degradado">
 		<div class="row mostrar_items" style="margin-right: -20px;">
-			<div class="span4 1ra_columna"></div>
-			<div class="span4 2da_columna"></div>
+			<div class="loading span8 pagination-centered" style="display:none;"><img src="assets/img/ajax-loader.gif" /></div>
+			<div class="loadingwrapper">
+				<div class="span4 1ra_columna"></div>
+				<div class="span4 2da_columna"></div>
+			</div>
 		</div>
 		<div id="paginador" class="pagination pagination-centered"></div>		
 	</div>
 </div>
-
-
 <script type="text/javascript">
 id_tipo_cliente = <?php if (isset($_SESSION['cliente'])) { echo $_SESSION['cliente']->id_tipo; } else if (isset($_SESSION['vendedor'])) { echo $_SESSION['vendedor']->id_tipo; }else { echo 'null'; } ?>;
 cat = <?php if (isset($_GET['categoria'])) { echo $_GET['categoria']; } else { echo 'null'; } ?>;
 tipo = <?php if (isset($_GET['tipo'])){ echo $_GET['tipo']; } else { echo 'null'; }?>;
-id_cliente_pedidos = <?php if (isset($_SESSION['cliente'])){ echo $_SESSION['cliente']->id_usuario; }  else { echo 'null';} ?>;	
+id_cliente_pedidos = <?php if (isset($_SESSION['cliente'])){ echo $_SESSION['cliente']->id_usuario; }  else { echo 'null';} ?>;
+vista = <?php echo '"'.$_REQUEST['view'].'"'; ?>;
+tipo_usuario = <?php if(isset($_SESSION['cliente'])) { echo '"cliente"'; } elseif(isset($_SESSION['vendedor'])) { echo '"vendedor"'; } else { echo '"null"';} ?>;
+
 </script>
-<div id="display_articulo_completo" class="modal">
+<div id="display_articulo_completo" class="modal" style="display:none;">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
     <h3>Ficha de Art&iacute;culo</h3>
@@ -112,22 +115,22 @@ id_cliente_pedidos = <?php if (isset($_SESSION['cliente'])){ echo $_SESSION['cli
 					<tbody>
 						<tr>
 							<td id="alto">
-								<IMG  SRC="images/no_disponible2.jpg" WIDTH="20px" HEIGHT="20px" ALT="No disponible">
+								<IMG  SRC="images/no_disponible2.jpg" style="max-width: 20px; max-height: 20px;"  width="20px" height="20px" ALT="No disponible">
 							</td>
 							<td id="ancho">
-								<IMG  SRC="images/no_disponible2.jpg" WIDTH="20px" HEIGHT="20px" ALT="No disponible">
+								<IMG  SRC="images/no_disponible2.jpg" style="max-width: 20px; max-height: 20px;" width="20px" height="20px" ALT="No disponible">
 							</td>
 							<td id="largo">
-								<IMG  SRC="images/no_disponible2.jpg" WIDTH="20px" HEIGHT="20px" ALT="No disponible">
+								<IMG  SRC="images/no_disponible2.jpg" style="max-width: 20px; max-height: 20px;" width="20px" height="20px" ALT="No disponible">
 							</td>
 							<td id="diametro">
-								<IMG  SRC="images/no_disponible2.jpg" WIDTH="20px" HEIGHT="20px" ALT="No disponible">
+								<IMG  SRC="images/no_disponible2.jpg" style="max-width: 20px; max-height: 20px;" width="20px" height="20px" ALT="No disponible">
 							</td>
 							<td id="peso">
-								<IMG SRC="images/no_disponible2.jpg" WIDTH="20px" HEIGHT="20" ALT="No disponible">
+								<IMG SRC="images/no_disponible2.jpg" style="max-width: 20px; max-height: 20px;" width="20px" height="20" ALT="No disponible">
 							</td>
 							<td id="empaque">
-								<IMG SRC="images/no_disponible2.jpg" WIDTH="20px" HEIGHT="20" ALT="No disponible">
+								<IMG SRC="images/no_disponible2.jpg" style="max-width: 20px; max-height: 20px;" width="20px" height="20" ALT="No disponible">
 							</td>
 						</tr>
 					</tbody>
@@ -137,5 +140,6 @@ id_cliente_pedidos = <?php if (isset($_SESSION['cliente'])){ echo $_SESSION['cli
     </div>
   </div>
   <div class="modal-footer">
+  	
   </div>
 </div>

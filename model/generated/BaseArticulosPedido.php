@@ -10,7 +10,11 @@ Doctrine_Manager::getInstance()->bindComponent('ArticulosPedido', 'villadel_vill
  * @property integer $id
  * @property integer $id_pedido
  * @property integer $id_articulo
+ * @property string $descripcion
+ * @property string $codigo
+ * @property string $foto
  * @property integer $cantidad
+ * @property float $precio
  * @property integer $inactivo
  * 
  * @package    ##PACKAGE##
@@ -49,9 +53,42 @@ abstract class BaseArticulosPedido extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
+        $this->hasColumn('descripcion', 'string', null, array(
+             'type' => 'string',
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('codigo', 'string', null, array(
+             'type' => 'string',
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('foto', 'string', null, array(
+             'type' => 'string',
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
         $this->hasColumn('cantidad', 'integer', 4, array(
              'type' => 'integer',
              'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('precio', 'float', 18, array(
+             'type' => 'float',
+             'length' => 18,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,

@@ -1,6 +1,6 @@
-var container = $('div#error_container');
+var container = $('div#error_container')
 $.validator.addMethod('caracteres', function (value) {
-	return /^([a-zA-Z0-9]*)$/.test(value);
+	return /^([a-zA-Z0-9]*)$/.test(value)
 }, 'La contrase&ntilde;a que introdujo no es v&aacute;lida');
 $(document).on('click','#csubmit',function(){
 	$("#cloginForm").validate({
@@ -13,13 +13,13 @@ $(document).on('click','#csubmit',function(){
 				required : true,
 				email : true
 				},
-				password : {
-					required : true,
-					minlength: 5,
-					maxlength: 15,
-					caracteres : true
-				}
-			},
+			password : {
+				required : true,
+				minlength: 5,
+				maxlength: 15,
+				caracteres : true
+			}
+		},
 		messages : {
 			user : "Por favor introduzca su Email",
 			password : "Por favor introduzca su Contraseña (solo letras y n&uacute;meros entre 5 y 15 caracteres)"
@@ -32,23 +32,29 @@ $(document).on('click','#csubmit',function(){
 					return true;
 				},
 				target: "#error_container"
-			});
+			})
 		}	
-	});	
-});
+	})
+})
 
 $(document).on('click','.enviar-item',function(event){
-	event.preventDefault()
-	$.when(procesarItem(1,$(this).attr('attr'))).then(function(data){
-		if($('#boton-pedidos').hasClass('disabled')){
-			$('#boton-pedidos').removeClass('disabled')
-		}
-	})
+	event.preventDefault();
+	$(document).unbind('.loadercat');
+	if(!$(this).hasClass('disabled')){
+		$.when(procesarItem(1,$(this).attr('attr'),vista)).then(function(data){
+			if($('#boton-pedidos').hasClass('disabled')){
+				$('#boton-pedidos').removeClass('disabled')
+			}	
+		})	
+	}
+	setTimeout(function(){
+		$('.clickover').popover('hide')
+	},1000)
 })
 
 $(document).on('click','.link_articulo',function(event){
 		event.preventDefault()
-   		var id = $(this).attr("id")
+		var id = $(this).attr("id")
    		getArticuloSolo(id,id_tipo_cliente)
   		$("#display_articulo_completo").modal('toggle')
 })
@@ -58,136 +64,144 @@ $(document).on('click','[data-dismiss="modal"]',function(event){
 		$("#display_articulo_completo").modal('toggle')
 })
 
-
+$(document).on('click','.mini',function(event){
+	event.preventDefault()
+	$('.big').attr('src',$(this).attr('src'))
+})
 $(document).ready(function(){
-	$('.mini').live("click",function(event){
-			event.preventDefault();
-			$('.big').attr('src',$(this).attr('src'));
-		});
-		$("#display_articulo_completo").hide();
-   		if(tipo!='undefined'){
-   			$('.nav-list li[tipo-id="'+tipo+'"] ').addClass("active");
-   			if(cat!='undefined'){
-   				totalpag = getPaginationArt(cat,tipo);	
-   				if(id_tipo_cliente!='undefined'){
-   					getArticulos(1,cat,tipo,id_tipo_cliente);			
-   				}
+	$("#display_articulo_completo").hide()
+   	if(tipo!='undefined'){
+   		$('.nav-list li[tipo-id="'+tipo+'"] ').addClass("active");
+   		if(cat!='undefined'){
+   			totalpag = getPaginationArt(cat,tipo)	
+   			if(id_tipo_cliente!='undefined'){
+   				getArticulos(1,cat,tipo,id_tipo_cliente)			
    			}
    		}
-		var pagactual = 1;
-		if(totalpag<=10){
-			llenarpaginador(totalpag,pagactual,totalpag,totalpag,'#paginador',pagactual);
-		}else{
-			if(totalpag!='undefined'){
-				llenarpaginador(10,1,10,totalpag,"#paginador",pagactual);	
-			}
+   	}
+	var pagactual = 1;
+	if(totalpag<=10){
+		llenarpaginador(totalpag,pagactual,totalpag,totalpag,'#paginador',pagactual)
+	}else{
+		if(totalpag!='undefined'){
+			llenarpaginador(10,1,10,totalpag,"#paginador",pagactual)
 		}
+	}
+	
+})
+
+function bindAjaxloader(){
+	$(document).bind('ajaxStart.loadercat',function(){
+		$('.loading').show();
+		$('.loadingwrapper').hide();
+	})
+	$(document).bind('ajaxStop.loadercat',function(){
+		$('.loading').hide();
+    	$('.loadingwrapper').show();
 	});
-	function getPaginationArt(cat,tipo){
-		$.ajax({
-			type : "POST",
-			url : "crud.php",
-			dataType : "json",
-			data : {
-				view : 'catalogo2012',
-				action : 'getPaginationArt',
-				categoria : cat,
-				tipo : tipo,
-				inactivo : 0
-			},
-			async : false,
-			success : function(data) {
-				totalpag = data[0];
-			}
-		});
-		return totalpag;
-	}
-	function getArticuloSolo(id,itc) {
-		$.ajax({
-			type : "POST",
-			url : "crud.php",
-			dataType : "json",
-			data : {
-				view : 'catalogo2012',
-				action : 'getArticulosCompleto',
-				id : id,
-				id_tipo_cliente : itc
-			},
-			success : function(data) {
-				var content;
-				var i = 0;
-				$('#item_preliminar').html("");
-				$('#item_imagenes').html("");
-				jQuery.each(data[0]['foto'], function() {
-					if(i==0){
-						$('#item_preliminar').append('<li class="span3"><a href="#"><img class="thumbnail big" width="230px" height="230px" src="'+this+'" /></a></li>');
-					}
-					fotos = '<li class="span1"><a href="#"><img class="thumbnail mini" id="foto_'+i+'" src="'+this+'" /></a></li>'
-					i++;		
-   					$('#item_imagenes').append(fotos);
-   				});
-   				
-				$('#codigo').html(data[0]['codigo']);
-				$('#nombre').html(data[0]['nombre']);	
-							
-				if (data[0]['agotado'] == 0){
-					if($('#agotado').hasClass("label-warning")) $('#agotado').removeClass('label-warning');
-					$('#agotado').addClass('label-success');
-					$('#agotado').html('Disponible');
-				}else {
-					if($('#agotado').hasClass("label-success")) $('#agotado').removeClass('label-success');
-					$('#agotado').addClass('label-warning');
-					$('#agotado').html('Agotado');
-				}
-				
-				if (data[0]['precio']!=null){
-					$('.precio').html('Precio: '+data[0]['precio']+' Bs.F');
-				} 
-				if (data[0]['alto']!=null) {
-					$('#alto').html(data[0]['alto']+' cms.');
-				}	
-				if (data[0]['ancho']!=null) {
-					$('#ancho').html(data[0]['ancho']+' cms.');
-				}	
-				if (data[0]['largo']!=null) {
-					$('#largo').html(data[0]['largo']+' cms.');
-				}	
-				if (data[0]['diametro']!=null) {
-					$('#diametro').html(data[0]['diametro']+' cms.');
-				}
-				if (data[0]['peso']!=null) {
-					peso = data[0]['peso'];
-					unidad = 'grs.';
-					if (peso>1000){peso = peso/1000; unidad = 'kgs.'}
-					$('#peso').html(peso+' '+unidad);
-				}
-				if (data[0]['empaque']!=null) {
-					$('#empaque').html(data[0]['empaque']);
-				}	
-				$('#descripcion').html(data[0]['descripcion']);	
-				if (data[0]['tipo'] == 'pecheras' || data[0]['tipo'] == 'Pecheras'){
-					$('#altolbl').text("Tronco");
-					$('#ancholbl').text("Pecho");
-					$('#largolbl').text("Paseador");
-					$('#diametrolbl').text("Cuello");
-				}
-				
-			}
-		});
-	}
-	function procesarItem(cant,id_art){
-		return $.ajax({
+}
+function getPaginationArt(cat,tipo){
+	$.ajax({
 		type : "POST",
 		url : "crud.php",
-		dataType : 'html',
+		dataType : "json",
 		data : {
-			view: 'catalogo2012',
-			action: 'añadirArticuloSesion',
-			cantidad : cant,
-			id_articulo : id_art,
+			view : 'catalogo2012',
+			action : 'getPaginationArt',
+			categoria : cat,
+			tipo : tipo,
+			inactivo : 0
+		},
+		async : false,
+		success : function(data) {
+			totalpag = data[0];
+		}
+	});
+	return totalpag;
+}
+function getArticuloSolo(id,itc) {
+	$.ajax({
+		type : "POST",
+		url : "crud.php",
+		dataType : "json",
+		data : {
+			view : 'catalogo2012',
+			action : 'getArticulosCompleto',
+			id : id,
+			id_tipo_cliente : itc
+		},
+		success : function(data) {
+			var content;
+			var i = 0;
+			$('#item_preliminar').html("");
+			$('#item_imagenes').html("");
+			jQuery.each(data[0]['foto'], function() {
+				if(i==0){
+					$('#item_preliminar').append('<li class="span3"><a href="#"><img class="thumbnail big" width="230px" height="230px" src="'+this+'" /></a></li>');
+				}
+				fotos = '<li class="span1"><a href="#"><img class="thumbnail mini" id="foto_'+i+'" src="'+this+'" /></a></li>'
+				i++;		
+				$('#item_imagenes').append(fotos);
+  			});
+   			$('#codigo').html(data[0]['codigo']);
+			$('#nombre').html(data[0]['nombre']);	
+			if (data[0]['agotado'] == 0){
+				if($('#agotado').hasClass("label-warning")) $('#agotado').removeClass('label-warning');
+				$('#agotado').addClass('label-success');
+				$('#agotado').html('Disponible');
+			}else {
+				if($('#agotado').hasClass("label-success")) $('#agotado').removeClass('label-success');
+				$('#agotado').addClass('label-warning');
+				$('#agotado').html('Agotado');
+			}
+			if (data[0]['precio']!=null){
+				$('.precio').html('Precio: '+data[0]['precio']+' Bs.F');
+			} 
+			if (data[0]['alto']!=null) {
+				$('#alto').html(data[0]['alto']+' cms.');
+			}	
+			if (data[0]['ancho']!=null) {
+				$('#ancho').html(data[0]['ancho']+' cms.');
+			}	
+			if (data[0]['largo']!=null) {
+				$('#largo').html(data[0]['largo']+' cms.');
+			}	
+			if (data[0]['diametro']!=null) {
+				$('#diametro').html(data[0]['diametro']+' cms.');
+			}
+			if (data[0]['peso']!=null) {
+				peso = data[0]['peso'];
+				unidad = 'grs.';
+				if (peso>1000){peso = peso/1000; unidad = 'kgs.'}
+				$('#peso').html(peso+' '+unidad);
+			}
+			if (data[0]['empaque']!=null) {
+				$('#empaque').html(data[0]['empaque']);
+			}	
+			$('#descripcion').html(data[0]['descripcion']);	
+			if (data[0]['tipo'] == 'pecheras' || data[0]['tipo'] == 'Pecheras'){
+				$('#altolbl').text("Tronco");
+				$('#ancholbl').text("Pecho");
+				$('#largolbl').text("Paseador");
+				$('#diametrolbl').text("Cuello");
+			}
+			
+		}
+	});
+}
+	function procesarItem(cant,id_art,vista){
+		return $.ajax({
+			type : "POST",
+			url : "crud.php",
+			dataType : 'html',
+			data : {
+				view: vista,
+				action: 'añadirArticuloSesion',
+				cantidad : cant,
+				id_articulo : id_art,
 			},
-		success : function(data){
-			respuesta = data;
+			success : function(data){
+				respuesta = data;
 			}
 		});
 	}
@@ -208,14 +222,18 @@ $(document).ready(function(){
 				$('.1ra_columna').html('');
 				$('.2da_columna').html('');
 				for (var i=0; i < (data.length)/2; i++) {
-					 $('.1ra_columna').append(renderArticulos(data[i]));
+					 $('.1ra_columna').append(renderArticulos(data[i],tipo_usuario));
 				}for (var i=Math.ceil((data.length)/2); i < data.length; i++) {
-					 $('.2da_columna').append(renderArticulos(data[i]));
+					 $('.2da_columna').append(renderArticulos(data[i],tipo_usuario));
 				}
+				$('.clickover').popover({
+					placement: 'top',
+					delay: { show: 500, hide: 500},
+				});
 			}
 		});
 	}
-	function renderArticulos(data){
+	function renderArticulos(data,tipo_usuario){
 		var content = '<div class="row articulos">';
 		content += '<div class="span1 imagen"><a id="'+data['id']+'" class="thumbnail link_articulo" style="background: white;" href="#"><img src="'+data["foto"]+'"></a></div>';
 		content += '<div class="span3"><div class="row titulo"><div class="span2"><h5><a class="link_articulo" id="'+data['id']+'" href="#"><strong>'+data["codigo"].toUpperCase()+'</strong></a></h5></div><div class="span1">';
@@ -233,16 +251,44 @@ $(document).ready(function(){
 			break;
 		}
 		content += '</div></div><p class="pedidos_nombre">'+data["nombre"]+'</p>';
-		if (data['precio'] != null){
+		switch(tipo_usuario){
+			case 'vendedor':
+				if (data['precio'] != null){
+					switch(stock){
+						case true:
+						content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p>';
+						break;
+						case false:
+						content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p>';
+						break;	
+					}	
+				}
+			break;
+			case 'cliente':
+				if (data['precio'] != null){
+					switch(stock){
+						case true:
+						content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a data-content="Item añadido correctamente." class="clickover pedidos-cant enviar-item btn btn-small btn-info" attr="'+data["id"]+'"><i class="icon-shopping-cart icon-white"></i> Añadir al pedido</a></div>';
+						break;
+						case false:
+						content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a data-content="Lo sentimos, este articulo no esta disponible." class="clickover enviar-item pedidos-cant btn btn-small btn-danger disabled" attr="'+data["id"]+'"><i class="icon-shopping-cart icon-white"></i> No disponible</a></div>';
+						break;	
+					}	
+				}
+			break;
+			default:
+			break;
+		}
+		/*if (data['precio'] != null){
 			switch(stock){
 				case true:
-				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a rel="popover" data-trigger="hover" data-placement="top" data-content="Item añadido correctamente" class="pedidos-cant enviar-item btn btn-small btn-info" attr="'+data["id"]+'" href="#"><i class="icon-shopping-cart icon-white"></i> Añadir al pedido</a></div>';
+				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a data-content="Item añadido correctamente." class="clickover pedidos-cant enviar-item btn btn-small btn-info" attr="'+data["id"]+'"><i class="icon-shopping-cart icon-white"></i> Añadir al pedido</a></div>';
 				break;
 				case false:
-				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a class="pedidos-cant btn btn-small btn-danger disabled" attr="'+data["id"]+'" href="#"><i class="icon-shopping-cart icon-white"></i> No disponible</a></div>';
+				content += '<p><strong class="pedidos_precio"> Bs. '+data["precio"]+'</strong></p><div class="pedidos_frame pull-right"><a data-content="Lo sentimos, este articulo no esta disponible." class="clickover enviar-item pedidos-cant btn btn-small btn-danger disabled" attr="'+data["id"]+'"><i class="icon-shopping-cart icon-white"></i> No disponible</a></div>';
 				break;	
 			}	
-		}
+		}*/
 		content += '</div></div>';
 		return content;
 	}
@@ -259,24 +305,24 @@ $(document).ready(function(){
 	for(var count = primera_pag; count <= ultima_pag; count++){
 		switch(count){
 				case 1: 
-					html += "<li class='primer-boton'><a href='#' id='"+count+"'>"+count+"</a></li>"
+					html += "<li class='primer-boton'><a id='"+count+"'>"+count+"</a></li>"
 				break;
 				case primera_pag:
-					html += "<li class='primer-boton'><a href='#' id='"+count+"'>"+count+"</a></li>"		
+					html += "<li class='primer-boton'><a id='"+count+"'>"+count+"</a></li>"		
 				break;
 				case ultima_pag:
-					html += "<li class='ultimo-boton'><a href='#' id='"+count+"'>"+count+"</a></li>"
+					html += "<li class='ultimo-boton'><a id='"+count+"'>"+count+"</a></li>"
 				break;
 				default:
-					html += "<li><a href='#' id='"+count+"'>"+count+"</a></li>"
+					html += "<li><a id='"+count+"'>"+count+"</a></li>"
 				break;
 		}
 
 			
 	}
-	$(selector+" ul").append("<li class='prev'><a href='#'>Anterior</a></li>")
+	$(selector+" ul").append("<li class='prev'><a>Anterior</a></li>")
 	$(selector+" ul").append(html)
-	$(selector+" ul").append("<li class='next'><a href='#'>Siguiente</a></li>")
+	$(selector+" ul").append("<li class='next'><a>Siguiente</a></li>")
 	$(selector+" ul li a#"+pagina_actual).parent().addClass("active")
 	
 	if($(selector+" ul li.active").children().attr("id")==1){
@@ -290,6 +336,7 @@ $(document).ready(function(){
 function paginador(primera_pagina,ultima_pagina,pags_show,total,selector,callback){
 	$(selector+" ul li").on("click",function(event){
 		event.preventDefault
+		bindAjaxloader();
 		var _activa = $(selector+" ul li.active")
 		_next = $(selector+" ul li.next")
 		_prev = $(selector+" ul li.prev")

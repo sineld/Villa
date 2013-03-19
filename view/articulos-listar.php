@@ -23,19 +23,14 @@
 </div>
 <script type="text/javascript">
 	var pp = 30;
-	jQuery.fn.log = function (msg) {
-      console.log("%s: %o", msg, this);
-      return this;
-	};
 	$(document).ready(function() {
-		$("#listaart").tablesorter(); 
+		//$("#listaart").tablesorter(); 
 		getPaginationArt();
 		getArticulos(1);
 		$('#paginador_lista').change(function(event){
 				var pag = $(this).find(':selected').attr('value');
 				event.preventDefault();
 				getArticulos(pag);
-				$(this).log(pag);
 		});
 	});
 	function getPaginationArt(){

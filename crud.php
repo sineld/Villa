@@ -7,7 +7,6 @@ if($GLOBALS["debugMode"])
 	ini_set('display_errors', '1');
 }
 require_once("bootstrap.php");
-
 require_once("phputils/xmlParser.php");
 require_once("phputils/Url.class.php");
 require_once('manager/error.manager.php');

@@ -13,4 +13,15 @@
 class Articulos extends BaseArticulos
 {
 
+	public function Busqueda_articulo($data){
+		$data = '%'.$data.'%';
+		$query = Doctrine_Query::create()
+					//-> select('id as ID, codigo as COD')
+					-> select('*')
+					-> from('articulos')
+					-> where('codigo LIKE ?',$data)
+					-> limit(10);
+		$verificador = $query->execute()->toArray();
+		return $verificador;
+	}
 }
